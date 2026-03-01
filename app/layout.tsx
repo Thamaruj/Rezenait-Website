@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen bg-white`}>
+      <body className={`${inter.className} min-h-screen bg-dot-pattern`}>
         
         {/* 2. Use the Navbar component here! */}
         <Navbar />

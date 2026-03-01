@@ -21,7 +21,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#020844] to-[#1353D2] bg-clip-text text-transparent"
+            className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#020844] to-[#1353D2] bg-clip-text text-transparent md:leading-tight"
           >
             Designing the Intelligence Behind Modern Enterprises
           </motion.h1>
@@ -44,9 +44,14 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
-            <button className="mt-10 flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 hover:shadow-lg">
+            <button className="group mt-10 flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-light text-white shadow-md transition-all duration-300 ease-out hover:bg-blue-700 hover:shadow-lg md:hover:-translate-y-1 :hover:scale-[1.02] cursor-pointer active:scale-95">
               Get Started
-              <span aria-hidden="true">&rarr;</span>
+              <span 
+                aria-hidden="true" 
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                &rarr;
+              </span>
             </button>
           </motion.div>
 
