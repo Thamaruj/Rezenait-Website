@@ -1,64 +1,33 @@
-"use client"; // This tells Next.js this file runs in the browser so animations can play!
+import { client } from "@/sanity/lib/client";
+import { HOME_REVIEWS_QUERY } from "@/sanity/lib/queries";
+import Hero from "../components/home/hero";
+import Services from "@/components/home/services"
+import Reviews from "@/components/home/reviews";
+import SucessStories from "@/components/home/sucessStories"
+import Industries from "@/components/home/industries"
+import Differentiation from "@/components/home/differentiation"
+import BottomCTA from "@/components/home/bottomCTA";
+import OurApproach from "@/components/home/approach"
 
-import { motion } from "framer-motion";
+// Note the `async` keyword!
+export default async function Home() {
+  
+  // 1. Fetch data from the CMS
+  const data = await client.fetch(HOME_REVIEWS_QUERY);
+  const reviews = data?.featuredReviews || [];
 
-export default function Home() {
   return (
-    <>
-      {/* Background Layer */}
-      <div 
-        className="absolute top-0 left-0 w-full min-h-screen -z-10 bg-no-repeat bg-cover bg-center md:bg-top"
-        style={{ backgroundImage: "url('/Hero Section Bg.svg')" }}
-      />
-
-      <main className="mx-7 max-w-full md:px-12 pt-10 pb-10 md:pt-20">
-        <div className="max-w-3xl">
-          
-          {/* Animated Headline */}
-          {/* initial = starting state (invisible and pushed down) */}
-          {/* animate = ending state (fully visible and in its normal position) */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#020844] to-[#1353D2] bg-clip-text text-transparent md:leading-tight"
-          >
-            Designing the Intelligence Behind Modern Enterprises
-          </motion.h1>
-          
-          {/* Animated Sub-headline */}
-          {/* We added a 'delay: 0.2' so it fades in right after the title */}
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="mt-6 max-w-lg text-lg text-gray-600 leading-relaxed"
-          >
-            Scalable AI systems built on a robust data foundation to accelerate operations and unlock new growth.
-          </motion.p>
-          
-          {/* Animated Button */}
-          {/* We added a 'delay: 0.4' so it fades in last */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          >
-            <button className="group mt-10 flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-light text-white shadow-md transition-all duration-300 ease-out hover:bg-blue-700 hover:shadow-lg md:hover:-translate-y-1 :hover:scale-[1.02] cursor-pointer active:scale-95">
-              Get Started
-              <span 
-                aria-hidden="true" 
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              >
-                &rarr;
-              </span>
-            </button>
-          </motion.div>
-
-        </div>
-        
-      </main>
-      
-    </>
+    // We can use a div or main to wrap the blocks
+    <div className=""> 
+        {/* 2. Load the Client-animated Hero */}
+        <Hero />
+        <Services/>
+        <OurApproach/>
+        <SucessStories/>
+        <Industries/>
+        <Reviews />
+        <Differentiation/> 
+        <BottomCTA/>
+    </div>
   );
 }
