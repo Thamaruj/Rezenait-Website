@@ -1,6 +1,17 @@
+"use client"
+
 import Link from "next/link";
 
+
 export default function Footer() {
+
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    })
+  }
+
   return (
     <footer className="bg-[#010421] text-gray-300 py-16">
       <div className="max-w-full mx-auto px-6 md:px-20">
@@ -13,6 +24,7 @@ export default function Footer() {
             <Link 
               href="/" 
               className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-[#006EFF] to-[#071289] bg-clip-text text-transparent"
+              onClick={scrollToTop}
             >
               Rezenait
             </Link>
