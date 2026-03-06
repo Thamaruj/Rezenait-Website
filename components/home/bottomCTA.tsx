@@ -7,7 +7,7 @@ export default function bottomCTA(){
     return(
         <>
         
-            <main className='text-center py-12 mx-w-full md:px-12 bg-gradient-to-t from-[#000000] to-[#040E77]'>
+            <main className='text-center py-12 mx-w-full md:px-12 bg-gradient-to-b from-[#01A1FD] to-[#C0E2F6]'>
                 <div>
                     <motion.h1 
                         initial={{opacity:0, y:20}}
@@ -24,7 +24,7 @@ export default function bottomCTA(){
                         whileInView={{opacity:1, y:0}}
                         viewport={{once:true}}
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                        className="text-gray-400  md:leading-tight"
+                        className="text-white  md:leading-tight"
                     >
                         Let's discuss how our AI engineering expertise can transform your business. Schedule a free consultation with our team.
                     </motion.p>
@@ -35,7 +35,7 @@ export default function bottomCTA(){
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-                            className="mt-10 gap-2 rounded bg-white px-6 py-3 text-sm  text-blue-600 shadow-md transition-all duration-300 ease-out hover:bg-blue-700 hover:text-white hover:shadow-lg md:hover:-translate-y-1 hover:scale-[1.02] cursor-pointer active:scale-95"
+                            className="mt-10 gap-2 rounded bg-white px-6 py-3 text-sm text-blue-600 shadow-md transition-all duration-300 ease-out hover:bg-blue-700 hover:text-white hover:shadow-lg md:hover:-translate-y-1 hover:scale-[1.02] cursor-pointer active:scale-95"
                             >
                             Book a Free AI Consultation
                         </motion.button>
