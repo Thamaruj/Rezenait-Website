@@ -30,20 +30,20 @@ export default function services(){
                     </motion.p>
                 </div>
 
-                <div className="bg-[#03285F] py-20">
+                <div className="bg-[#DCDCDC]/25 py-20 md:mx-20 rounded-xl">
                     <div className="mx-auto max-w-7xl px-5 md:px-0">
                         
                         <div className="grid gap-10 md:grid-cols-3 justify-items-center">
 
                         {/* Card 1 */}
-                            <div className="rounded-xl bg-[#031037] p-8 w-full shadow-lg hover:scale-[1.02] transition-all duration-300 ease-out">
+                            <div className="rounded-xl bg-white p-8 w-full shadow-lg hover:scale-[1.02] transition-all duration-300 ease-out border border-blue-600">
                                <img src="/Icons/BrainIcon.svg" alt="AI Icon " className='mb-5'  />
-                                <h3 className="text-2xl font-semibold text-white text-bold text-start">AI/ML Engineering</h3>
-                                <p className="mt-4 text-white text-start font-light">
+                                <h3 className="text-2xl font-semibold text-gray-700 text-bold text-start">AI/ML Engineering</h3>
+                                <p className="mt-4 text-gray-700 text-start font-light">
                                     End-to-end machine learning and AI solutions from generative AI and LLMs to production-ready ML systems. Includes RAG, Agentic AI, computer vision, NLP, and MLOps
                                 </p>
 
-                                <ul className='text-start pt-5 text-gray-400 text-sm font-extralight'>
+                                <ul className='text-start pt-5 text-gray-500 text-sm font-light'>
                                     <li className="flex items-center gap-3">
                                         <HiCheck className="text-blue-600 text-xl" />
                                         Generative AI & LLMs
@@ -73,14 +73,14 @@ export default function services(){
                             </div>
                         
                             {/* Card 2 */}
-                            <div className="rounded-xl bg-[#031037] p-8 w-full shadow-lg hover:scale-[1.02] transition-all duration-300 ease-out">
+                            <div className="rounded-xl bg-white p-8 w-full shadow-lg hover:scale-[1.02] transition-all duration-300 ease-out border border-blue-600">
                                <img src="/Icons/DatabaseIcon.svg" alt="AI Icon " className='mb-5'  />
-                                <h3 className="text-2xl font-semibold text-white text-bold text-start">Data & Strategy Engineering</h3>
-                                <p className="mt-4 text-white text-start font-light md:mb-5">
+                                <h3 className="text-2xl font-semibold text-gray-700 text-bold text-start">Data & Strategy Engineering</h3>
+                                <p className="mt-4 text-gray-700 text-start font-light md:mb-5">
                                     Build a robust data foundation with strategic data architecture and engineering. Scalable pipelines, modern data warehousing, and governance frameworks.
                                 </p>
 
-                                <ul className='text-start pt-5 text-gray-400 text-sm font-extralight'>
+                                <ul className='text-start pt-5 text-gray-500 text-sm font-light'>
                                     <li className="flex items-center gap-3">
                                         <HiCheck className="text-blue-600 text-xl" />
                                         Data Pipeline & Orchestration
@@ -112,13 +112,13 @@ export default function services(){
 
 
                             {/* Card 3 */}
-                            <div className="rounded-xl bg-[#031037] p-8 w-full shadow-lg hover:scale-[1.02] transition-all duration-300 ease-out">
+                            <div className="rounded-xl bg-white p-8 w-full shadow-lg hover:scale-[1.02] transition-all duration-300 ease-out border border-blue-600">
                                <img src="/Icons/AnalyticsIcon.svg" alt="AI Icon " className='mb-5'  />
-                                <h3 className="text-2xl font-semibold text-white text-bold text-start">Analytics & BI</h3>
-                                <p className="mt-4 text-white text-start font-light md:mb-5">
+                                <h3 className="text-2xl font-semibold text-gray-700 text-bold text-start">Analytics & BI</h3>
+                                <p className="mt-4 text-gray-700 text-start font-light md:mb-5">
                                     Transform data into actionable insights with comprehensive analytics and BI solutions. Real-time dashboards, predictive analytics, and performance tracking.                                </p>
 
-                                <ul className='text-start pt-5 text-gray-400 text-sm font-extralight'>
+                                <ul className='text-start pt-5 text-gray-500 text-sm font-light'>
                                     <li className="flex items-center gap-3">
                                         <HiCheck className="text-blue-600 text-xl" />
                                         Descriptive & Predictive Analytics
