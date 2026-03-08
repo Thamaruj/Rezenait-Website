@@ -13,7 +13,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#010421] text-gray-300 py-16">
+    <footer className="bg-white text-gray-300 py-16">
       <div className="max-w-full mx-auto px-6 md:px-20">
         
         {/* Main Grid Layout */}
@@ -28,6 +28,7 @@ export default function Footer() {
             >
               Rezenait
             </Link>
+            
             <p className="text-sm text-gray-400 leading-relaxed pr-4">
               Advanced AI engineering and data solutions for startups and enterprises.
             </p>
@@ -56,7 +57,7 @@ export default function Footer() {
 
           {/* Column 2: Services */}
           <div>
-            <h3 className="text-white font-semibold mb-6">Services</h3>
+            <h3 className="text-gray-500 font-semibold mb-6">Services</h3>
             <ul className="flex flex-col gap-4 text-sm text-gray-400">
               <li><Link href="/services" className="hover:text-blue-500 transition">AI/ML Engineering</Link></li>
               <li><Link href="/services" className="hover:text-blue-500 transition">Data Strategy Engineering</Link></li>
@@ -66,7 +67,7 @@ export default function Footer() {
 
           {/* Column 3: Company */}
           <div>
-            <h3 className="text-white font-semibold mb-6">Company</h3>
+            <h3 className="text-gray-500 font-semibold mb-6">Company</h3>
             <ul className="flex flex-col gap-4 text-sm text-gray-400">
               <li><Link href="/about" className="hover:text-blue-500 transition">About Us</Link></li>
               <li><Link href="/blog" className="hover:text-blue-500 transition">Blog</Link></li>
@@ -77,7 +78,7 @@ export default function Footer() {
 
           {/* Column 4: Get in Touch */}
           <div>
-            <h3 className="text-white font-semibold mb-6">Get in Touch</h3>
+            <h3 className="text-gray-500 font-semibold mb-6">Get in Touch</h3>
             <ul className="flex flex-col gap-4 text-sm text-gray-400">
               <li>Colombo, Sri Lanka</li>
               <li><a href="mailto:hello@rezenait.com" className="hover:text-blue-500 transition">hello@rezenait.com</a></li>
