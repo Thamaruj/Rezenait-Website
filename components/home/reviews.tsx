@@ -33,7 +33,7 @@ export default function Reviews({ reviews }: { reviews: Review[] }) {
   }, []);
 
   return (
-    <section className="overflow-hidden py-10 md:py-20 bg-white">
+    <section className="overflow-hidden py-10 md:py-20 ">
       {/* Header */}
       <div className="text-center max-w-full px-6 mb-16">
         <motion.h1

@@ -43,7 +43,7 @@ const points = [
 
 export default function Differentiation() {
     return (
-        <section className="bg-[#fcfcfc] overflow-hidden">
+        <section className=" overflow-hidden">
             {/* 1. Header Section (Your Existing Structure) */}
             <main className='text-center max-w-full md:px-12 pt-10 pb-10 md:pt-20'>
                 <div>
