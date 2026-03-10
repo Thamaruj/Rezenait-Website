@@ -2,14 +2,14 @@ import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'homePage',
-  title: 'Home Page Settings',
+  title: 'Home Page Customer Reviews',
   type: 'document',
   fields: [
     defineField({
       name: 'title',
       title: 'Document Title',
       type: 'string',
-      initialValue: 'Home Page Content',
+      initialValue: 'Home Page Customer Reviews',
       readOnly: true, // Just for internal organization
     }),
     defineField({
