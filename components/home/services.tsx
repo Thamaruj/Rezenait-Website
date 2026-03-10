@@ -29,6 +29,7 @@ export default function services(){
                         <span className='text-gray-600'>Comprehensive AI and data engineering solutions designed to accelerate your digital transformation</span>
                     </motion.p>
                 </div>
+                
 
                 <div className="bg-[#DCDCDC]/25 py-20 md:mx-20 rounded-xl">
                     <div className="mx-auto max-w-7xl px-5 md:px-0">
