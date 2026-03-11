@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <>
       <div 
-        className="absolute top-0 left-0 w-full min-h-screen -z-10 bg-no-repeat bg-cover bg-center md:bg-top "
+        className="absolute top-0 left-0 w-full md:min-h-screen h-125 -z-10 bg-no-repeat bg-cover bg-center md:bg-top "
         style={{ backgroundImage: "url('/Hero Section Bg.svg')" }}
       />
 

@@ -1,11 +1,12 @@
 export default function approach() {
   return (
-    <section className="relative bg-[#03285F] text-white">
+    <section className="relative bg-[#38D1FB] text-white">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 py-20 md:grid-cols-2">
         
         {/* LEFT SIDE */}
         <div className="sticky top-32 h-fit">
           <h1 className="text-4xl md:text-7xl font-semibold">Our Approach</h1>
+          
           <p className="mt-6 text-gray-400">
             A structured, results-focused methodology designed to align business strategy with intelligent systems ensuring clarity, speed, and lasting value.
           </p>

@@ -8,7 +8,7 @@ export default function services(){
     return(
         <>
         
-            <main className='text-center mx-w-full pt-10  md:pt-20'>
+            <main className='text-center mx-w-full pt-10 mx-7  md:pt-20'>
                 <div>
                     <motion.h1 
                         initial={{ opacity: 0, y: 30 }}
