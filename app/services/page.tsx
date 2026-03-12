@@ -1,6 +1,7 @@
 "use client"; // Required for Framer Motion animations to run in the browser
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import BottomCTA from "@/components/home/bottomCTA";
 
@@ -204,9 +205,60 @@ const analytics_bi_servicesDetails = [
   }
 ];
 
+
+function ServiceSection({ category, services, setActive }: { category: string, services: any[], setActive: (cat: string) => void }) {
+  const ref = useRef(null);
+  // This triggers when the section is in the middle of the screen
+  const isInView = useInView(ref, { margin: "-45% 0px -45% 0px" });
+
+  useEffect(() => {
+    if (isInView) setActive(category);
+  }, [isInView, category, setActive]);
+
+  return (
+    <div ref={ref} id={category.replace(/\s+/g, '-')} className="mb-32 last:mb-0 scroll-mt-40">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {services.map((service: any, index: number) => {
+          const isOddTotal = services.length % 2 !== 0;
+          const isLastItem = index === services.length - 1;
+          const centerClass = (isOddTotal && isLastItem) ? "md:col-span-2 md:w-[calc(50%-0.625rem)] md:justify-self-center w-full" : "w-full";
+
+          return (
+            <motion.div
+              key={index}
+              whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
+              className={`flex items-center gap-5 p-7 bg-white rounded-3xl border border-slate-100 shadow-sm group transition-all ${centerClass}`}
+            >
+              <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                <img src={service.src} alt="" className="w-6 h-6 object-contain" />
+              </div>
+              <h4 className="font-bold text-slate-800 text-lg leading-tight">{service.serviceName}</h4>
+            </motion.div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+
+
 export default function ServicesPage() {
   // We double the array so the end of the first set matches the start of the second set perfectly
   const duplicatedTech = [...technologies, ...technologies];
+
+  const [activeCategory, setActiveCategory] = useState("Generative AI");
+
+  // Group AI/ML services by category
+  const groupedServices = useMemo(() => {
+    return ai_ml_servicesDetails.reduce((acc, current) => {
+      if (!acc[current.serviceCategory]) acc[current.serviceCategory] = [];
+      acc[current.serviceCategory].push(current);
+      return acc;
+    }, {} as Record<string, typeof ai_ml_servicesDetails>);
+  }, []);
+
+  const categories = Object.keys(groupedServices);
 
   return (
     <>
@@ -425,8 +477,42 @@ export default function ServicesPage() {
         </section>
 
 
-        
-        
+
+    <div className="max-w-full mx-auto flex flex-col lg:flex-row gap-10 py-20 bg-[#DCDCDC]/25 rounded-2xl">
+      
+      {/* LEFT SIDE: STICKY NAVIGATOR */}
+      <div className="lg:w-1/3">
+        <div className="lg:sticky lg:top-40 space-y-20">
+          
+
+          <nav className="flex flex-col gap-10 pl-8 bg-blue-900 p-10">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => document.getElementById(cat.replace(/\s+/g, '-'))?.scrollIntoView({ behavior: 'smooth' })}
+                className={`text-left text-3xl font-bold transition-all duration-500 ${
+                  activeCategory === cat ? "text-[#16ADF2] translate-x-4" : "text-slate-300 hover:text-slate-400"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      {/* RIGHT SIDE: SCROLLING CONTENT */}
+      <div className="lg:w-2/3">
+        {Object.entries(groupedServices).map(([category, services]) => (
+          <ServiceSection 
+            key={category} 
+            category={category} 
+            services={services} 
+            setActive={setActiveCategory} 
+          />
+        ))}
+      </div>
+    </div>
 
       </main>
 
