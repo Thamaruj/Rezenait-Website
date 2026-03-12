@@ -34,7 +34,7 @@ export default function services(){
                 <div className="bg-[#DCDCDC]/25 py-20 md:mx-20 rounded-xl">
                     <div className="mx-auto max-w-7xl px-5 md:px-0 ">
                         
-                        <div className="grid gap-10 md:grid-cols-3 justify-items-center p-7">
+                        <div className="grid gap-10 md:grid-cols-3 justify-items-center ">
 
                         {/* Card 1 */}
                             <div className="rounded-xl bg-white p-8 w-full shadow-lg hover:scale-[1.02] transition-all duration-300 ease-out border border-blue-600">
