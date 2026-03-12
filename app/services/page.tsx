@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import BottomCTA from "@/components/home/bottomCTA";
+import { navigate } from "next/dist/client/components/segment-cache/navigation";
+
 
 const services = [
   {
@@ -11,7 +13,7 @@ const services = [
     iconColor: "from-blue-600 to-indigo-700",
     shadowColor: "shadow-blue-200",
     icon: "/Services Page/TestIcon.svg",
-    link:"/",
+    link:"/services#ai-ml-enginnering",
   },
   {
     title: "Data Strategy & Engineering",
@@ -19,7 +21,7 @@ const services = [
     iconColor: "from-emerald-500 to-teal-700",
     shadowColor: "shadow-emerald-200",
     icon: "/Services Page/TestIcon.svg",
-    link:"/",
+    link:"/services#data-stratergy-engineering",
   },
   {
     title: "Analytics & Business Intelligence",
@@ -27,7 +29,7 @@ const services = [
     iconColor: "from-orange-500 to-red-700",
     shadowColor: "shadow-orange-200",
     icon: "/Services Page/TestIcon.svg",
-    link:"/",
+    link:"/services#analytics-bi",
   },
 ];
 
@@ -155,27 +157,27 @@ const ai_ml_servicesDetails = [
 
 const data_engineering_servicesDetails = [
   {
-    serviceCategory: "N/A",
+    serviceCategory: "Data Engineering Services",
     serviceName: "Data Pipeline Design and Orchestration",
     src: "Services Page/TechStack/powerBI.svg"
   },
   {
-    serviceCategory: "N/A",
+    serviceCategory: "Data Engineering Services",
     serviceName: "ETL/ELT Processes",
     src: "Services Page/TechStack/powerBI.svg"
   },
   {
-    serviceCategory: "N/A",
+    serviceCategory: "Data Engineering Services",
     serviceName: "Data Warehousing",
     src: "Services Page/TechStack/powerBI.svg"
   },
   {
-    serviceCategory: "N/A",
+    serviceCategory: "Data Engineering Services",
     serviceName: "Data Governance",
     src: "Services Page/TechStack/powerBI.svg"
   },
   {
-    serviceCategory: "N/A",
+    serviceCategory: "Data Engineering Services",
     serviceName: "Data/ML Infrastructure",
     src: "Services Page/TechStack/powerBI.svg"
   }
@@ -183,34 +185,41 @@ const data_engineering_servicesDetails = [
 
 const analytics_bi_servicesDetails = [
   {
-    serviceCategory: "N/A",
+    serviceCategory: "Analytics & BI Services",
     serviceName: "Descriptive & Predictive Analytics",
     src: "Services Page/TechStack/powerBI.svg"
   },
   {
-    serviceCategory: "N/A",
+    serviceCategory: "Analytics & BI Services",
     serviceName: "Dashboards & Visualization",
     src: "Services Page/TechStack/powerBI.svg"
   },
   {
-    serviceCategory: "N/A",
+    serviceCategory: "Analytics & BI Services",
     serviceName: "Reporting",
     src: "Services Page/TechStack/powerBI.svg"
   },
   {
-    serviceCategory: "N/A",
+    serviceCategory: "Analytics & BI Services",
     serviceName: "KPI & Performance Tracking",
     src: "Services Page/TechStack/powerBI.svg"
-  }
+  },
+  
 ];
+
+
 
 export default function ServicesPage() {
   // We double the array so the end of the first set matches the start of the second set perfectly
   const duplicatedTech = [...technologies, ...technologies];
 
+  const categoryNameAnalytics_Bi = analytics_bi_servicesDetails[0].serviceCategory;
+  const categoryNameData_Engineering = data_engineering_servicesDetails[0].serviceCategory;
+
+  
+
   return (
     <>
-      {/* Header Background Layer */}
       <div 
         className="absolute top-0 left-0 w-full h-[350px] -z-10 bg-no-repeat bg-cover bg-center"
         style={{ backgroundImage: "url('/Header-Bg.svg')" }}
@@ -252,6 +261,7 @@ export default function ServicesPage() {
                 className="bg-white p-10 rounded-xl border border-[#007AA3] shadow-sm 
                            w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] 
                            hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group hover:bg-[#007AA3]/80 "
+                onClick={()=>{window.location.href=`${service.link}`}}
               >
                 <img
                     src={service.icon}
@@ -265,7 +275,7 @@ export default function ServicesPage() {
                   {service.title}
                 </h3>
                 
-                <p className="text-lg text-slate-500 leading-relaxed font-light group-hover:text-white">
+                <p className="text-lg text-gray-600 leading-relaxed font-light group-hover:text-white">
                   {service.description}
                 </p>
               </motion.div>
@@ -354,7 +364,8 @@ export default function ServicesPage() {
 
         {/* AI/ML Section */}
         <section 
-        className="text-center py-15 md:py-20">
+        className="text-center py-15 md:py-10"
+        id="ai-ml-enginnering">
           <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -378,7 +389,8 @@ export default function ServicesPage() {
 
         {/* Data Strategy & Engineering */}
         <section 
-        className="text-center py-15 md:py-20">
+        className="text-center py-15 md:py-10"
+        id="data-stratergy-engineering">
           <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -386,7 +398,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
           >
-              Data Strategy & Engineering 
+              Data Strategy & Engineering
           </motion.h1>
 
           <motion.p
@@ -394,15 +406,66 @@ export default function ServicesPage() {
               whileInView={{opacity:1, y:0}}
               viewport={{once:true}}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className='text-center mb-16 py-5'
+              className='text-center pb-20'
               >
               <span className='text-gray-600'>Strategic data architecture and engineering that transforms raw data into a valuable enterprise asset, enabling AI initiatives and data-driven decisions.</span>
           </motion.p>
+
+          <div className="max-w-full mx-auto overflow-hidden rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex flex-col md:flex-row bg-[#DCDCDC]/50 ">
+                  
+            {/* LEFT SIDE: THE CATEGORY PANEL */}
+            <div className="md:w-1/3 bg-[#097AC3] p-12 flex flex-col justify-center items-center text-center relative overflow-hidden">
+              {/* Subtle background glow for premium feel */}
+              <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/20 rounded-full blur-[80px]" />
+              
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{duration:0.8,}}
+                className="text-white text-4xl md:text-5xl font-black leading-tight relative z-10"
+              >
+                {categoryNameData_Engineering}
+              </motion.h2>
+              
+              <div className="mt-8 h-1 w-16 bg-white/40 rounded-full relative z-10" />
+            </div>
+
+            {/* RIGHT SIDE: CENTERED GRID CONTENT */}
+            <div className="md:w-2/3 p-8 md:p-16 flex items-center justify-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 w-full max-w-2xl">
+                {data_engineering_servicesDetails.map((service, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration:0.8, delay: index * 0.15 }}
+                    className="bg-white p-6 rounded-2xl flex items-center gap-4 border border-blue-200"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center flex-shrink-0 ">
+                      <img 
+                        src={service.src} 
+                        alt={service.serviceName+`image`}
+                        className="w-6 h-6 object-contain opacity-80 " 
+                      />
+                    </div>
+                    
+                    <h4 className="font-light text-gray-600 text-lg leading-snug text-start ">
+                      {service.serviceName}
+                    </h4>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
         </section>
 
         {/* Analytics & BI*/}
         <section 
-        className="text-center py-15 md:py-20">
+        className="text-center py-15 md:py-10"
+        id="analytics-bi">
           <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -418,15 +481,67 @@ export default function ServicesPage() {
               whileInView={{opacity:1, y:0}}
               viewport={{once:true}}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className='text-center py-5'
+              className='text-center pb-20'
               >
               <span className='text-gray-600'>Comprehensive analytics and BI solutions that empower data-driven decision making with real-time insights and intuitive visualizations.</span>
           </motion.p>
+
+        <div className="max-w-full mx-auto overflow-hidden rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex flex-col md:flex-row bg-[#DCDCDC]/50 ">
+                
+          {/* LEFT SIDE: THE CATEGORY PANEL */}
+          <div className="md:w-1/3 bg-[#097AC3] p-12 flex flex-col justify-center items-center text-center relative overflow-hidden">
+            {/* Subtle background glow for premium feel */}
+            <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/20 rounded-full blur-[80px]" />
+            
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{duration:0.8,}}
+              className="text-white text-4xl md:text-5xl font-black leading-tight relative z-10"
+            >
+              {categoryNameAnalytics_Bi}
+            </motion.h2>
+            
+            <div className="mt-8 h-1 w-16 bg-white/40 rounded-full relative z-10" />
+          </div>
+
+          {/* RIGHT SIDE: CENTERED GRID CONTENT */}
+          <div className="md:w-2/3 p-8 md:p-16 flex items-center justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 w-full max-w-2xl">
+              {analytics_bi_servicesDetails.map((service, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration:0.8, delay: index * 0.15 }}
+                  className="bg-white p-6 rounded-2xl flex items-center gap-4 border border-blue-200"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center flex-shrink-0 ">
+                    <img 
+                      src={service.src} 
+                      alt={service.serviceName+`image`}
+                      className="w-6 h-6 object-contain opacity-80 " 
+                    />
+                  </div>
+                  
+                  <h4 className="font-light text-gray-600 text-lg leading-snug text-start ">
+                    {service.serviceName}
+                  </h4>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         </section>
 
+        
+
 
         
-        
+
 
       </main>
 

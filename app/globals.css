@@ -8,3 +8,7 @@
   background-image: radial-gradient(#eaeaea 0.5px, #ffffff 0.5px);
   background-size: 4px 4px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
