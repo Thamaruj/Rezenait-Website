@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import BottomCTA from "@/components/home/bottomCTA";
 
 const services = [
   {
@@ -66,6 +67,141 @@ const technologies = [
   { name: "Tableau", src:'Services Page/TechStack/tableau.svg', category:"Visualization"},
   { name: "Streamlit", src:'Services Page/TechStack/streamlit.svg', category:"Visualization"},
   { name: "PowerBI", src:'Services Page/TechStack/powerBI.svg', category:"Visualization"},
+];
+
+
+const ai_ml_servicesDetails = [
+  // Generative AI
+  {
+    serviceCategory: "Generative AI",
+    serviceName: "Large Language Models (LLMs)",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Generative AI",
+    serviceName: "Agentic AI",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Generative AI",
+    serviceName: "RAG (Retrieval-Augmented Generation)",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Generative AI",
+    serviceName: "Natural Language Processing",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Generative AI",
+    serviceName: "Document Intelligence",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Generative AI",
+    serviceName: "Conversational AI (Chatbots)",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+
+  // Core Machine Learning
+  {
+    serviceCategory: "Core Machine Learning",
+    serviceName: "Machine Learning",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Core Machine Learning",
+    serviceName: "Predictive Analytics",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Core Machine Learning",
+    serviceName: "Time Series Prediction",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Core Machine Learning",
+    serviceName: "Recommendation Systems",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Core Machine Learning",
+    serviceName: "MLOps",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+
+  // Advanced Deep Learning
+  {
+    serviceCategory: "Advanced Deep Learning",
+    serviceName: "Deep Learning",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Advanced Deep Learning",
+    serviceName: "Computer Vision",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Advanced Deep Learning",
+    serviceName: "Voice AI",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "Advanced Deep Learning",
+    serviceName: "Multimodal AI",
+    src: "Services Page/TechStack/powerBI.svg"
+  }
+];
+
+const data_engineering_servicesDetails = [
+  {
+    serviceCategory: "N/A",
+    serviceName: "Data Pipeline Design and Orchestration",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "N/A",
+    serviceName: "ETL/ELT Processes",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "N/A",
+    serviceName: "Data Warehousing",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "N/A",
+    serviceName: "Data Governance",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "N/A",
+    serviceName: "Data/ML Infrastructure",
+    src: "Services Page/TechStack/powerBI.svg"
+  }
+];
+
+const analytics_bi_servicesDetails = [
+  {
+    serviceCategory: "N/A",
+    serviceName: "Descriptive & Predictive Analytics",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "N/A",
+    serviceName: "Dashboards & Visualization",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "N/A",
+    serviceName: "Reporting",
+    src: "Services Page/TechStack/powerBI.svg"
+  },
+  {
+    serviceCategory: "N/A",
+    serviceName: "KPI & Performance Tracking",
+    src: "Services Page/TechStack/powerBI.svg"
+  }
 ];
 
 export default function ServicesPage() {
@@ -288,7 +424,13 @@ export default function ServicesPage() {
           </motion.p>
         </section>
 
+
+        
+        
+
       </main>
+
+      <BottomCTA/>
     </>
   );
 }
