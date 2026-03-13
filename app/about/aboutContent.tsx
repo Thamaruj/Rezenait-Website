@@ -46,7 +46,7 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
         style={{ backgroundImage: "url('/Header-Bg.svg')" }}
       ></div>
 
-      <main className="mx-7 max-w-full md:px-12 pt-5 md:pt-10 pb-32 ">
+      <main className="mx-7 max-w-full md:px-12 pt-5 md:pt-10  ">
         
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center md:mb-25">
           <motion.h1
@@ -71,20 +71,20 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
         </div>
 
         {/* Mission & Vision */}
-        <section className=" w-full p-10 flex items-center justify-center overflow-hidden bg-[#DCDCDC]/25 rounded-3xl">
+        <section className=" w-full mt-30 p-7 flex items-center justify-center overflow-hidden bg-[#DCDCDC]/25 rounded-3xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="relative z-10 max-w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
           >
             <div className="bg-white/70 backdrop-blur-sm border border-blue-500 rounded-3xl p-8 md:p-12 shadow-sm flex flex-col items-start transition-all hover:shadow-md group">
               <div className="mb-6 flex items-center justify-center w-12 h-12 rounded-full bg-blue-50">
                 <Target className="w-6 h-6 text-blue-500" strokeWidth={1.5} />
               </div>
               <h2 className="text-3xl font-bold text-gray-700 mb-6 tracking-tight">Our Mission</h2>
-              <p className=" leading-relaxed text-gray-600 ">
-                To democratize access to world-class AI engineering expertise, helping startups and enterprises across Sri Lanka and beyond build intelligent systems that drive measurable business impact. We believe every organization should have access to cutting-edge AI consultancy and data engineering solutions.]
+              <p className=" leading-relaxed text-gray-600 text-sm md:text-lg">
+                To democratize access to world-class AI engineering expertise, helping startups and enterprises across Sri Lanka and beyond build intelligent systems that drive measurable business impact. We believe every organization should have access to cutting-edge AI consultancy and data engineering solutions.
               </p>
             </div>
 
@@ -93,7 +93,7 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
                 <Eye className="w-6 h-6 text-blue-500" strokeWidth={1.5} />
               </div>
               <h2 className="text-3xl font-bold text-gray-700 mb-6 tracking-tight">Our Vision</h2>
-              <p className=" leading-relaxed text-gray-600 ">
+              <p className=" leading-relaxed text-gray-600 text-sm md:text-lg">
                To be recognized as the leading AI engineering company in South Asia, known for delivering enterprise-grade RAG development services, agentic AI solutions, and scalable data infrastructure that powers the next generation of intelligent businesses.
               </p>
             </div>
@@ -114,7 +114,7 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
             </motion.h1>
           </div>
 
-          <div className="max-w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10 p-10 bg-[#DCDCDC]/25 rounded-3xl">
+          <div className="max-w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10 p-7 bg-[#DCDCDC]/25 rounded-3xl">
             {coreValues.map((item, index) => (
               <motion.div
                 key={index}
@@ -148,40 +148,43 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
             </motion.h1>
           </div>
 
-          <div className="relative flex overflow-hidden py-10 bg-[#DCDCDC]/25">
-            <motion.div
-              className="flex gap-8 items-center"
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ duration: 40, ease: "linear", repeat: Infinity }}
-            >
-              {duplicatedTeam.map((member, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-[280px]  bg-white p-6 rounded-[2rem] shadow-md border border-blue-500 hover:shadow-2xl transition-all duration-300"
+            <div className="relative flex overflow-hidden py-10 bg-[#DCDCDC]/25">
+                <motion.div
+                className="flex gap-4 md:gap-8 items-center" // Smaller gap on mobile
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{ duration: 40, ease: "linear", repeat: Infinity }}
                 >
-                  <div className="w-full aspect-square rounded-2xl overflow-hidden mb-6 bg-slate-100">
-                    <img
-                      src={member.imageUrl}
-                      alt={member.name}
-                      className="w-full h-full object-cover transition-all duration-500"
-                    />
-                  </div>
-                  <div className="text-start">
-                    <h3 className="text-lg font-semibold text-gray-800">{member.name}</h3>
-                    <p className="text-[#097AC3] font-semibold text-sm uppercase my-2">{member.position}</p>
-                    <span className="text-gray-700 text-sm font-light bg-slate-100 px-3 py-1 rounded-full">
-                    {member.experience}
-                    </span>
+                {duplicatedTeam.map((member, index) => (
+                    <div
+                    key={index}
                     
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-            
-            {/* Edge Fades for the vanishing effect */}
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-          </div>
+                    className="flex-shrink-0 w-[180px] md:w-[280px] bg-white p-4 md:p-6 rounded-3xl shadow-md border border-blue-500 hover:shadow-2xl transition-all duration-300"
+                    >
+                    {/* Smaller margin-bottom on mobile */}
+                    <div className="w-full aspect-square rounded-2xl overflow-hidden mb-4 md:mb-6 bg-slate-100">
+                        <img
+                        src={member.imageUrl}
+                        alt={member.name}
+                        className="w-full h-full object-cover transition-all duration-500"
+                        />
+                    </div>
+                    <div className="text-start">
+                        {/* Responsive text size for the name */}
+                        <h3 className="text-sm md:text-base font-semibold text-gray-800 line-clamp-1">{member.name}</h3>
+                        <p className="text-[#097AC3] font-semibold text-[10px] md:text-sm uppercase my-2 line-clamp-1">{member.position}</p>
+                        <span className="text-gray-700 md:text-sm text-[10px] font-light bg-slate-100/75 px-3 py-1 rounded-full whitespace-nowrap">
+                        {member.experience}
+                        </span>
+                    </div>
+                    </div>
+                ))}
+                </motion.div>
+                
+                {/* Edge Fades - slightly narrower on mobile to show more card content */}
+                <div className="absolute inset-y-0 left-0 w-12 md:w-24 bg-gradient-to-r from-white/80 to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-12 md:w-24 bg-gradient-to-l from-white/80 to-transparent z-10 pointer-events-none" />
+            </div>
+
         </section>
 
         
@@ -217,7 +220,7 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-600 text-lg md:text-xl leading-relaxed font-normal max-w-5xl"
+            className="text-gray-600 text-sm md:text-lg md:text-xl leading-relaxed font-normal max-w-5xl"
             >
             Headquartered in Colombo, Sri Lanka, we serve clients across South Asia, Southeast Asia, and beyond. 
             Our AI consultancy combines local expertise with global best practices, delivering world-class AI 
