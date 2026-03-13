@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Target, Eye } from 'lucide-react';
+import { Target, Eye, Globe } from 'lucide-react';
 
 // Define the interface for your team member data
 interface TeamMember {
@@ -183,6 +183,55 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
           </div>
         </section>
+
+        
+        <section className=" z-10 max-w-full mx-auto text-center flex flex-col items-center mt-10 md:mt-20">
+          
+            {/* Animated Icon */}
+            <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
+            >
+            <div className="p-4 bg-blue-50 rounded-full">
+                <Globe className="w-12 h-12 text-[#0066FF]" strokeWidth={1.5} />
+            </div>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl text-gray-700 font-bold mb-8 tracking-tight"
+            >
+            Based in Sri Lanka, Serving Globally
+            </motion.h2>
+
+            {/* Description Paragraph */}
+            <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-gray-600 text-lg md:text-xl leading-relaxed font-normal max-w-5xl"
+            >
+            Headquartered in Colombo, Sri Lanka, we serve clients across South Asia, Southeast Asia, and beyond. 
+            Our AI consultancy combines local expertise with global best practices, delivering world-class AI 
+            engineering and data engineering solutions at competitive rates.
+            </motion.p>
+
+        </section>
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+        
+
+      </div>
+
+
       </main>
     </>
   );
