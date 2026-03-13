@@ -5,8 +5,9 @@ import review from './allReviews'
 import homePage from './homePageReview'
 import homepageSuccessStories from './successStoryHome'
 import allSucessStories from './successStories'
+import teamMembers from "./ourTeam"
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post,job,review,homePage,allSucessStories,homepageSuccessStories],
+  types: [post,job,review,homePage,allSucessStories,homepageSuccessStories,teamMembers],
 }

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Target, Eye } from 'lucide-react';
 
 
+
 const coreValues = [
   {
     value: "Innovation First",
@@ -144,7 +145,19 @@ export default function AboutPage() {
               ))}
             </div>
           
-
+          </section>
+            <div className="text-center">
+                <motion.h1 
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    viewport={{once:true}}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="text-4xl py-10 md:text-7xl font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
+                >
+                    Meet Our Team
+                </motion.h1>
+            </div>
+        <section>
 
 
 

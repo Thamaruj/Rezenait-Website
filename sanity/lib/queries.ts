@@ -22,3 +22,12 @@ export const HOME_PAGE_QUERY = defineQuery(`
     }
   }
 `);
+
+export const TEAM_QUERY = defineQuery(`
+  *[_type == "team"]{
+    name,
+    position,
+    experience,
+    "imageUrl": image.asset->url
+  }
+`);
