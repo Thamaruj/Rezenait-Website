@@ -31,3 +31,9 @@ export const TEAM_QUERY = defineQuery(`
     "imageUrl": image.asset->url
   }
 `);
+
+export const BLOG_QUERY = defineQuery(`*[_type == "blog"] | order(_createdAt desc) {
+  _id, title, author, readTime, mainCategory, topics, intro, content, isFeatured,
+  "imageUrl": image.asset->url,
+  "slug": slug.current
+}`);
