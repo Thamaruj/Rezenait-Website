@@ -16,22 +16,23 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'title', // Generates the URL (e.g., yoursite.com/careers/senior-ai-engineer)
+        source: 'title',
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'department',
-      title: 'Department',
+      name: 'category',
+      title: 'Job Category',
       type: 'string',
-      description: 'e.g., Engineering, Marketing, Product',
+      description: 'Ex: Engineering, AI, Marketing',
     }),
     defineField({
       name: 'location',
       title: 'Location',
       type: 'string',
-      description: 'e.g., Remote, San Francisco, CA',
+      description: 'Ex: Remote, Colombo ',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'type',
@@ -51,13 +52,37 @@ export default defineType({
       title: 'Is Active?',
       type: 'boolean',
       description: 'Turn this off to hide the role from the careers page when filled.',
-      initialValue: true, // Defaults to true when you create a new job
+      initialValue: true,
     }),
     defineField({
       name: 'description',
       title: 'Job Description',
       type: 'array',
-      of: [{ type: 'block' }], // Rich text for bullet points and formatting
+      of: [{ type: 'block' }],
+    }),
+    defineField({
+      name: 'requirements',
+      title: 'Requirements',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'List the qualifications, skills, or experience required for the role as simple bullet points.',
+      validation: (Rule) => Rule.required(),
     }),
   ],
+  // ✅ Preview configuration
+  preview: {
+    select: {
+      title: 'title',
+      category: 'category',
+      type: 'type',
+      isActive: 'isActive',
+    },
+    prepare(selection) {
+      const { title, category, type, isActive } = selection
+      return {
+        title: title,
+        subtitle: `${category || 'No category'} • ${type || 'No type'} • ${isActive ? 'Active' : 'Inactive'}`,
+      }
+    },
+  },
 })

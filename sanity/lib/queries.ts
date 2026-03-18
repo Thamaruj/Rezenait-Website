@@ -37,3 +37,14 @@ export const BLOG_QUERY = defineQuery(`*[_type == "blog"] | order(_createdAt des
   "imageUrl": image.asset->url,
   "slug": slug.current
 }`);
+
+export const JOB_QUERY = `*[_type == "job" && isActive == true] | order(_createdAt desc) {
+  _id,
+  title,
+  "slug": slug.current,
+  category,
+  location,
+  type,
+  description,
+  requirements
+}`
