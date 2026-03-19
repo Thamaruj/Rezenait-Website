@@ -92,7 +92,7 @@ export default function successStories({ stories }: { stories: SuccessStory[] })
           </div>
         </div>
 
-        <Link href={"/services"}
+        <Link href={"/portfolio"}
         className='text-center items-center py-8'>
             <button className='group font-light flex items-center gap-2 py-2 px-3 rounded-lg mt-5 text-blue-500 border cursor-pointer transition-all duration-300 ease-out md:hover:-translate-y-1 hover:scale-[1.02] cursor-pointer active:scale-95'>
                 Discover More Stories

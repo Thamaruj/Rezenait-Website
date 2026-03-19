@@ -1,9 +1,9 @@
 "use client"; // Required for Framer Motion animations to run in the browser
 
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import BottomCTA from "@/components/home/bottomCTA";
-import { navigate } from "next/dist/client/components/segment-cache/navigation";
+
 
 
 const services = [
@@ -71,9 +71,61 @@ const technologies = [
   { name: "PowerBI", src:'Services Page/TechStack/powerBI.svg', category:"Visualization"},
 ];
 
+// Core Machine Learning
+const ai_ml_servicesDetails_CoreML= [
+    {
+      serviceCategory: "Core Machine Learning",
+      serviceName: "Machine Learning",
+      src: "Services Page/TechStack/powerBI.svg"
+    },
+    {
+      serviceCategory: "Core Machine Learning",
+      serviceName: "Predictive Analytics",
+      src: "Services Page/TechStack/powerBI.svg"
+    },
+    {
+      serviceCategory: "Core Machine Learning",
+      serviceName: "Time Series Prediction",
+      src: "Services Page/TechStack/powerBI.svg"
+    },
+    {
+      serviceCategory: "Core Machine Learning",
+      serviceName: "Recommendation Systems",
+      src: "Services Page/TechStack/powerBI.svg"
+    },
+    {
+      serviceCategory: "Core Machine Learning",
+      serviceName: "MLOps",
+      src: "Services Page/TechStack/powerBI.svg"
+    },
+]
 
-const ai_ml_servicesDetails = [
-  // Generative AI
+// Advanced Deep Learning
+const ai_ml_servicesDetails_DeepLearning= [
+    {
+      serviceCategory: "Advanced Deep Learning",
+      serviceName: "Deep Learning",
+      src: "Services Page/TechStack/powerBI.svg"
+    },
+    {
+      serviceCategory: "Advanced Deep Learning",
+      serviceName: "Computer Vision",
+      src: "Services Page/TechStack/powerBI.svg"
+    },
+    {
+      serviceCategory: "Advanced Deep Learning",
+      serviceName: "Voice AI",
+      src: "Services Page/TechStack/powerBI.svg"
+    },
+    {
+      serviceCategory: "Advanced Deep Learning",
+      serviceName: "Multimodal AI",
+      src: "Services Page/TechStack/powerBI.svg"
+    }
+]
+// Generative AI
+const ai_ml_servicesDetails_GenAI= [
+
   {
     serviceCategory: "Generative AI",
     serviceName: "Large Language Models (LLMs)",
@@ -105,55 +157,12 @@ const ai_ml_servicesDetails = [
     src: "Services Page/TechStack/powerBI.svg"
   },
 
-  // Core Machine Learning
-  {
-    serviceCategory: "Core Machine Learning",
-    serviceName: "Machine Learning",
-    src: "Services Page/TechStack/powerBI.svg"
-  },
-  {
-    serviceCategory: "Core Machine Learning",
-    serviceName: "Predictive Analytics",
-    src: "Services Page/TechStack/powerBI.svg"
-  },
-  {
-    serviceCategory: "Core Machine Learning",
-    serviceName: "Time Series Prediction",
-    src: "Services Page/TechStack/powerBI.svg"
-  },
-  {
-    serviceCategory: "Core Machine Learning",
-    serviceName: "Recommendation Systems",
-    src: "Services Page/TechStack/powerBI.svg"
-  },
-  {
-    serviceCategory: "Core Machine Learning",
-    serviceName: "MLOps",
-    src: "Services Page/TechStack/powerBI.svg"
-  },
 
-  // Advanced Deep Learning
-  {
-    serviceCategory: "Advanced Deep Learning",
-    serviceName: "Deep Learning",
-    src: "Services Page/TechStack/powerBI.svg"
-  },
-  {
-    serviceCategory: "Advanced Deep Learning",
-    serviceName: "Computer Vision",
-    src: "Services Page/TechStack/powerBI.svg"
-  },
-  {
-    serviceCategory: "Advanced Deep Learning",
-    serviceName: "Voice AI",
-    src: "Services Page/TechStack/powerBI.svg"
-  },
-  {
-    serviceCategory: "Advanced Deep Learning",
-    serviceName: "Multimodal AI",
-    src: "Services Page/TechStack/powerBI.svg"
-  }
+
 ];
+
+// ABOVE ARE IN "AI/ML Engineering" Main Service Category
+
 
 const data_engineering_servicesDetails = [
   {
@@ -213,8 +222,16 @@ export default function ServicesPage() {
   // We double the array so the end of the first set matches the start of the second set perfectly
   const duplicatedTech = [...technologies, ...technologies];
 
+  const categoryNameCoreML = ai_ml_servicesDetails_CoreML[0].serviceCategory;
+  const categoryNameDeepLearning = ai_ml_servicesDetails_DeepLearning[0].serviceCategory;
+  const categoryNameGenAI = ai_ml_servicesDetails_GenAI[0].serviceCategory;
+
   const categoryNameAnalytics_Bi = analytics_bi_servicesDetails[0].serviceCategory;
   const categoryNameData_Engineering = data_engineering_servicesDetails[0].serviceCategory;
+
+
+  // State to track which service category is currently active (for filtering technologies)
+  const [activeTab, setActiveTab] = useState("GenAI");
 
   
 
@@ -385,6 +402,95 @@ export default function ServicesPage() {
               >
               <span className='text-gray-600'>From generative AI to advanced deep learning, we build intelligent systems that solve complex challenges and create competitive advantages.</span>
           </motion.p>
+
+            <div className="max-w-full mx-auto overflow-hidden rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex flex-col md:flex-row bg-[#DCDCDC]/50 ">
+                    
+              {/* LEFT SIDE: THE CATEGORY PANEL */}
+              <div className="md:w-1/3 bg-[#097AC3] p-12 flex flex-col justify-center items-center text-center relative overflow-hidden text-start">
+
+                
+                <motion.h2 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{duration:0.8,}}
+                  className="text-white text-4xl md:text-xl font-black leading-tight relative z-10 "
+                >
+                  <span
+                    onClick={() => {setActiveTab("GenAI"),console.log("Active CoreML")}}
+                      className={`block w-full cursor-pointer mb-2 transition-colors ${
+                        activeTab === "GenAI"
+                          ? "text-blue-900 font-bold"
+                          : "text-white hover:text-gray-300"
+                      }`}
+                  >
+                    {categoryNameGenAI}
+                  </span>
+
+                  <span
+                    onClick={() => setActiveTab("CoreML")}
+                    className={`block w-full cursor-pointer mb-2 transition-colors ${
+                        activeTab === "CoreML"
+                          ? "text-blue-900 font-bold"
+                          : "text-white hover:text-gray-300"
+                      }`}
+                  >
+                    {categoryNameCoreML}
+                  </span>
+
+                  <span
+                    onClick={() => setActiveTab("DeepLearning")}
+                    className={`block w-full cursor-pointer mb-2 transition-colors ${
+                        activeTab === "DeepLearning"
+                          ? "text-blue-900 font-bold"
+                          : "text-white hover:text-gray-300"
+                      }`}
+                  >
+                    {categoryNameDeepLearning}
+                  </span>
+
+
+                </motion.h2>
+                
+                <div className="mt-8 h-1 w-16 bg-white/40 rounded-full relative z-10" />
+              </div>
+              {/* RIGHT SIDE: CONDITIONAL CONTENT */}
+              <div className="md:w-2/3 p-8 md:p-16 flex items-center justify-center min-h-[400px]">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeTab} // Unique key triggers animation on change
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 w-full max-w-2xl"
+                  >
+                    {/* Logic to choose which array to map */}
+                    {(activeTab === "CoreML" ? ai_ml_servicesDetails_CoreML : 
+                      activeTab === "GenAI" ? ai_ml_servicesDetails_GenAI : 
+                      ai_ml_servicesDetails_DeepLearning
+                    ).map((service, index) => (
+                      <div
+                        key={index}
+                        className="bg-white p-2 rounded-2xl flex items-center gap-4 border border-blue-200 shadow-sm"
+                      >
+                        <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center flex-shrink-0 ">
+                          <img 
+                            src={service.src} 
+                            alt={service.serviceName}
+                            className="w-6 h-6 object-contain opacity-80" 
+                          />
+                        </div>
+                        <h4 className=" text-gray-600 leading-snug text-start">
+                          {service.serviceName}
+                        </h4>
+                      </div>
+                    ))}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+            </div>
         </section>
 
         {/* Data Strategy & Engineering */}
@@ -423,7 +529,7 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{duration:0.8,}}
-                className="text-white text-4xl md:text-5xl font-black leading-tight relative z-10"
+                className="text-white text-4xl md:text-xl font-black leading-tight relative z-10 cursor-pointer"
               >
                 {categoryNameData_Engineering}
               </motion.h2>
@@ -498,7 +604,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{duration:0.8,}}
-              className="text-white text-4xl md:text-5xl font-black leading-tight relative z-10"
+              className="text-white text-4xl md:text-xl font-black leading-tight relative z-10 cursor-pointer"
             >
               {categoryNameAnalytics_Bi}
             </motion.h2>
