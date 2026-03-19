@@ -48,3 +48,24 @@ export const JOB_QUERY = `*[_type == "job" && isActive == true] | order(_created
   description,
   requirements
 }`
+
+export const PORTFOIO_QUERY = defineQuery(`*[_type == "portfolio"] | order(order asc) {
+  _id,
+  title,
+  "slug": slug.current,
+  featured,
+  order,
+  badge,
+  badgeColor,
+  "imageUrl": image.asset->url,
+  tags,
+  shortDescription,
+  fullDescription,
+  stats[] {
+    value,
+    label
+  },
+  challenge,
+  solution,
+  outcome
+}`);
