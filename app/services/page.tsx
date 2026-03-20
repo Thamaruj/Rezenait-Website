@@ -547,7 +547,7 @@ export default function ServicesPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration:0.8, delay: index * 0.15 }}
-                    className="bg-white p-6 rounded-2xl flex items-center gap-4 border border-blue-200"
+                    className="bg-white p-2 rounded-2xl flex items-center gap-4 border border-blue-200"
                   >
                     <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center flex-shrink-0 ">
                       <img 
@@ -557,7 +557,7 @@ export default function ServicesPage() {
                       />
                     </div>
                     
-                    <h4 className="font-light text-gray-600 text-lg leading-snug text-start ">
+                    <h4 className="text-gray-600  leading-snug text-start ">
                       {service.serviceName}
                     </h4>
                   </motion.div>
@@ -622,7 +622,7 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration:0.8, delay: index * 0.15 }}
-                  className="bg-white p-6 rounded-2xl flex items-center gap-4 border border-blue-200"
+                  className="bg-white p-2 rounded-2xl flex items-center gap-4 border border-blue-200"
                 >
                   <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center flex-shrink-0 ">
                     <img 
@@ -632,7 +632,7 @@ export default function ServicesPage() {
                     />
                   </div>
                   
-                  <h4 className="font-light text-gray-600 text-lg leading-snug text-start ">
+                  <h4 className="text-gray-600 leading-snug text-start ">
                     {service.serviceName}
                   </h4>
                 </motion.div>

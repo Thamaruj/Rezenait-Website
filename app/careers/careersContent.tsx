@@ -125,7 +125,7 @@ function JobCard({ job, onApply }: { job: Job; onApply: (job: Job) => void }) {
         {/* Apply Button */}
         <button
           onClick={() => onApply(job)}
-          className="flex-shrink-0 flex items-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors duration-200 group"
+          className="flex-shrink-0 flex items-center cursor-pointer gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors duration-200 group"
         >
           Apply Now
           <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
@@ -311,7 +311,7 @@ function ApplicationModal({ job, onClose }: { job: Job; onClose: () => void }) {
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold py-3.5 rounded-xl transition-colors duration-200 text-sm"
+                  className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold py-3.5 cursor-pointer rounded-xl transition-colors duration-200 text-sm"
                 >
                   Submit Application
                 </button>
@@ -413,7 +413,7 @@ export default function CareersPage({ jobs = [] }: CareersPageProps) {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="flex-1 w-full"
             >
-              <div className="rounded-2xl p-6 bg-gradient-to-br from-[#5B9BD5] via-[#3B6FCC] to-[#1A3A8C]">
+              <div className="rounded-2xl p-6 bg-gradient-to-br from-[#16ADF2] to-[#7ACAF8]">
                 <div className="grid grid-cols-3 gap-4">
                   {perks.map((perk, index) => (
                     <motion.div
@@ -482,7 +482,7 @@ export default function CareersPage({ jobs = [] }: CareersPageProps) {
             className="flex-1 bg-transparent text-sm text-gray-700 placeholder-gray-400 focus:outline-none"
           />
           {search && (
-            <button onClick={() => setSearch("")} className="text-gray-400 hover:text-gray-600 text-xs">
+            <button onClick={() => setSearch("")} className="  text-gray-400 hover:text-gray-600 text-xs">
               Clear
             </button>
           )}

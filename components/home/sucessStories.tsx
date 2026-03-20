@@ -52,13 +52,13 @@ export default function successStories({ stories }: { stories: SuccessStory[] })
 
                 {/* Text Content */}
                 <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-2xl font-bold text-gray-700 mb-6 leading-tight">
+                  <h3 className="text-2xl  text-gray-700 mb-6 leading-tight">
                     {story.storyName}
                   </h3>
 
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-sm font-semibold text-red-400 uppercase tracking-wider mb-1">
+                      <h4 className="text-sm font-semibold text-red-800 uppercase tracking-wider mb-1">
                         Problem:
                       </h4>
                       <p className="text-gray-700 leading-relaxed">
@@ -67,7 +67,7 @@ export default function successStories({ stories }: { stories: SuccessStory[] })
                     </div>
 
                     <div className="pt-2">
-                      <h4 className="text-sm font-semibold text-green-500  uppercase tracking-wider mb-1">
+                      <h4 className="text-sm font-semibold text-green-800  uppercase tracking-wider mb-1">
                         Solution:
                       </h4>
                       <p className="text-gray-700 leading-relaxed">

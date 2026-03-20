@@ -31,7 +31,7 @@ export default function services(){
                 </div>
                 
 
-                <div className="bg-[#DCDCDC]/25 py-20 md:mx-20 rounded-xl">
+                <div className="bg-[#DCDCDC]/25 py-20 md:mx-10 rounded-xl">
                     <div className="mx-auto max-w-7xl px-5 md:px-0 ">
                         
                         <div className="grid gap-10 md:grid-cols-3 justify-items-center ">

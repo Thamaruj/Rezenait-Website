@@ -122,13 +122,13 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-[#66D3FF] p-8 rounded-3xl flex flex-col items-center text-center shadow-lg border border-white/20 transition-transform hover:-translate-y-2 duration-300"
+                className="bg-[#16ADF2] p-8 rounded-3xl flex flex-col items-center text-center shadow-lg border border-white/20 transition-transform hover:-translate-y-2 duration-300"
               >
                 <div className="w-16 h-16 mb-6 rounded-3xl flex items-center justify-center ">
                   <img src={item.icon} alt={item.value} />
                 </div>
-                <h3 className="text-white text-2xl font-bold mb-4 tracking-tight">{item.value}</h3>
-                <p className="text-white/90 text-lg font-light leading-relaxed">{item.description}</p>
+                <h3 className="text-white text-lg font-semibold mb-4 tracking-tight">{item.value}</h3>
+                <p className="text-white/90  font-light leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -172,9 +172,12 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
                         {/* Responsive text size for the name */}
                         <h3 className="text-sm md:text-base font-semibold text-gray-800 line-clamp-1">{member.name}</h3>
                         <p className="text-[#097AC3] font-semibold text-[10px] md:text-sm uppercase my-2 line-clamp-1">{member.position}</p>
-                        <span className="text-gray-700 md:text-sm text-[10px] font-light bg-slate-100/75 px-3 py-1 rounded-full whitespace-nowrap">
+                        {/*
+                          <span className="text-gray-700 md:text-sm text-[10px] font-light bg-slate-100/75 px-3 py-1 rounded-full whitespace-nowrap">
                         {member.experience}
                         </span>
+                          
+                         */}
                     </div>
                     </div>
                 ))}
