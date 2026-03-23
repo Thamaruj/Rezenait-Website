@@ -7,7 +7,10 @@ export default function bottomCTA(){
     return(
         <>
         
-            <main className='text-center px-5 py-12 mx-w-full md:px-12 bg-gradient-to-b from-[#01A1FD] to-[#C0E2F6]'>
+<main
+  className="text-center px-5 py-12 mx-w-full md:px-12 -z-10 bg-no-repeat bg-cover bg-center"
+  style={{ backgroundImage: "url('/Header-Bg.svg')" }}
+>
                 <div>
                     <motion.h1 
                         initial={{opacity:0, y:20}}
