@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import BottomCTA from "@/components/home/bottomCTA";
 
 
 
@@ -650,8 +649,6 @@ export default function ServicesPage() {
 
 
       </main>
-
-      <BottomCTA/>
     </>
   );
 }
