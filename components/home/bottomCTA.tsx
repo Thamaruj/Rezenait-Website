@@ -8,7 +8,7 @@ export default function bottomCTA(){
         <>
         
 <main
-  className="text-center px-5 py-12 mx-w-full md:px-12 -z-10 bg-no-repeat bg-cover bg-center"
+  className="text-center px-5 py-12 mx-w-full md:px-12  bg-no-repeat bg-cover bg-center"
   style={{ backgroundImage: "url('/Header-Bg.svg')" }}
 >
                 <div>
