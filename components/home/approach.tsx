@@ -48,7 +48,7 @@ function ScrollingNumber({ target }: { target: string }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.8 }}
       transition={{ duration: 0.5 }}
-      className="text-4xl md:text-5xl font-semibold text-[#040E77] block mb-2"
+      className="text-3xl md:text-3xl font-semibold text-[#040E77] block mb-2"
     >
       {target}
     </motion.span>
@@ -87,7 +87,7 @@ export default function Approach() {
             <h2 className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent leading-tight">
               Our Proven Approach
             </h2>
-            <p className="mt-8 max-w-md text-lg text-slate-600 leading-relaxed">
+            <p className="mt-8 max-w-md md:text-lg text-slate-600 leading-relaxed">
               A structured, results-focused methodology designed to align business strategy 
               with intelligent systems ensuring clarity, speed, and lasting value.
             </p>
@@ -95,10 +95,10 @@ export default function Approach() {
         </div>
 
         {/* RIGHT SIDE: SCROLLING SECTION */}
-        <div className="relative space-y-15 md:pt-25">
+        <div className="relative space-y-8 md:pt-5">
           
           {/* THE CONTINUOUS LINE (Progress Tracker) */}
-        <div className="absolute left-0 md:-left-10 top-25 bottom-[-80] w-[2px] bg-gray-100/20 hidden md:block">
+        <div className="absolute left-0 md:-left-10 top-5 bottom-[-30] w-[2px] bg-gray-100/20 hidden md:block">
           <motion.div 
             style={{ 
               scaleY, 
@@ -113,14 +113,20 @@ export default function Approach() {
         </div>
 
           {steps.map((step, index) => (
-            <div key={index} className="relative bg-[#DCDCDC]/25 rounded-xl md:p-8 p-4">
+            <div key={index} className="relative bg-[#DCDCDC]/25 rounded-xl md:p-5 p-4">
               
               {/* Header: Number & Title */}
-              <div className="mb-5">
+              <div className="">
                 <ScrollingNumber target={step.number} />
-                <h3 className="text-2xl font-semibold text-gray-700 tracking-tight">
+                <motion.h3 
+                initial={{ opacity: 0.2, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.8 }}
+                transition={{ duration: 0.5 }}
+                className="text-2xl font-semibold text-gray-700 tracking-tight">
+                  
                   {step.title}
-                </h3>
+                </motion.h3>
               </div>
 
               {/* Step Card */}
@@ -144,12 +150,6 @@ export default function Approach() {
                 </div>
               */}
 
-                
-                <div className=" p-3">
-                  <p className="text-slate-600 ">
-                    {step.description}
-                  </p>
-                </div>
               </motion.div>
             </div>
           ))}
