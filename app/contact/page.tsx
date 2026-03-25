@@ -92,7 +92,7 @@ export default function ContactPage(){
                                                 initial={{ opacity: 0, y: 20 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.8, delay: 0.4 + i * 0.1 }}
-                                                className="flex items-start gap-6 group border my-8 border-blue-500 p-4 bg-blue-500/5 rounded-xl hover:scale-[1.01] transition-transform duration-300 cursor-pointer"
+                                                className="flex items-start gap-6 group border my-8 border-blue-300 p-4 bg-blue-500/2 rounded-xl hover:scale-[1.01] transition-transform duration-300 cursor-pointer"
                                             >
                                                 <div className={`p-4 rounded-2xl transition-transform duration-300 ${item.color}`}>
                                                 {item.icon}
@@ -146,7 +146,7 @@ export default function ContactPage(){
                                         <motion.button 
                                             whileHover={{ scale: 1.02, y: -2 }}
                                             
-                                            className="w-full bg-blue-400 text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-xl shadow-blue-500/20 hover:bg-blue-500 "
+                                            className="w-full bg-blue-400 text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-xl shadow-blue-500/10 hover:bg-blue-500 "
                                             >
                                             Schedule Consultation
                                             <Send className="w-5 h-5" />
