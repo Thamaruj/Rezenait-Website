@@ -17,7 +17,7 @@ export default function bottomCTA(){
                         whileInView={{opacity:1, y:0}}
                         viewport={{once:true}}
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="text-4xl text-white md:text-7xl font-bold md:leading-tight py-5"
+                        className="text-4xl text-white md:text-7xl font-extralight md:leading-tight py-5"
                     >
                         Ready to Build Intelligent Systems?
                     </motion.h1>

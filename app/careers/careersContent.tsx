@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PortableText } from "@portabletext/react";
 
 // --- Types ---
@@ -76,7 +76,7 @@ function JobCard({ job, onApply }: { job: Job; onApply: (job: Job) => void }) {
 
           <div className="flex-1">
             {/* Title */}
-            <h3 className="text-xl font-bold text-gray-900">{job.title}</h3>
+            <h3 className="text-2xl font-light text-gray-800">{job.title}</h3>
 
             {/* Meta row */}
             <div className="flex flex-wrap items-center gap-3 mt-1 text-sm text-gray-500">
@@ -109,11 +109,11 @@ function JobCard({ job, onApply }: { job: Job; onApply: (job: Job) => void }) {
             <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-1">
               {job.requirements.slice(0, 2).map((req, i) => (
                 <span key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#DF6C46] flex-shrink-0" />
                   {req}
                 </span>
               ))}
-              {job.requirements.length > 2 && (
+              {job.requirements.length > 3 && (
                 <span className="text-sm text-[#2563EB] font-medium mt-1">
                   +{job.requirements.length - 2} more requirements
                 </span>
@@ -125,7 +125,7 @@ function JobCard({ job, onApply }: { job: Job; onApply: (job: Job) => void }) {
         {/* Apply Button */}
         <button
           onClick={() => onApply(job)}
-          className="flex-shrink-0 flex items-center cursor-pointer gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors duration-200 group"
+          className="flex-shrink-0 flex items-center cursor-pointer gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-light px-5 py-3 rounded-xl transition-colors duration-200 group"
         >
           Apply Now
           <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
@@ -139,6 +139,14 @@ function JobCard({ job, onApply }: { job: Job; onApply: (job: Job) => void }) {
 // ─── Application Modal ───────────────────────────────────────────────────────
 function ApplicationModal({ job, onClose }: { job: Job; onClose: () => void }) {
   const [form, setForm] = useState({ name: "", email: "", phone: "", cv: null as File | null });
+
+    useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -172,15 +180,15 @@ function ApplicationModal({ job, onClose }: { job: Job; onClose: () => void }) {
             <div>
               <h2 className="text-xl font-bold text-gray-900">{job.title}</h2>
               <div className="flex items-center gap-3 mt-1 text-sm text-gray-500">
-                {job.category && <span>{job.category}</span>}
-                <span>·</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1bb9c4] flex-shrink-0" />{job.category && <span>{job.category}</span>}
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1bb9c4] flex-shrink-0" />
                 <span>{job.location}</span>
-                {job.type && <><span>·</span><span>{job.type}</span></>}
+                {job.type && <><span className="w-1.5 h-1.5 rounded-full bg-[#1bb9c4] flex-shrink-0" /><span>{job.type}</span></>}
               </div>
             </div>
             <button
-              onClick={onClose}
-              className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors duration-200 text-gray-500"
+              onClick={onClose} 
+              className="w-8 h-8 cursor-pointer rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors duration-200 text-gray-500"
             >
               ✕
             </button>
@@ -208,7 +216,7 @@ function ApplicationModal({ job, onClose }: { job: Job; onClose: () => void }) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {job.requirements.map((req, i) => (
                   <span key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] flex-shrink-0 mt-1.5" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DF6C46] flex-shrink-0 mt-1.5" />
                     {req}
                   </span>
                 ))}
@@ -364,7 +372,7 @@ export default function CareersPage({ jobs = [] }: CareersPageProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl md:text-6xl font-bold text-white tracking-tight"
+          className="text-4xl md:text-6xl font-extralight text-white tracking-tight"
         >
           Build the Future of AI with Rezenait
         </motion.h1>
@@ -400,7 +408,7 @@ export default function CareersPage({ jobs = [] }: CareersPageProps) {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="flex-1"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0A0E3C] mb-6">Why Join Rezenait?</h2>
+              <h2 className="text-3xl md:text-4xl text-gray-700 font-light text-[#0A0E3C] mb-6">Why Join Rezenait?</h2>
               <p className="text-gray-500 text-base leading-relaxed max-w-sm">
                 We're building the leading AI engineering company in Sri Lanka. Join us to work on challenging problems with cutting-edge technology.
               </p>
@@ -448,7 +456,7 @@ export default function CareersPage({ jobs = [] }: CareersPageProps) {
             animate={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
+            className="text-4xl md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
           >
             Open Positions
           </motion.h1>

@@ -53,7 +53,7 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-6xl font-bold text-white tracking-tight"
+            className="text-4xl md:text-6xl font-extralight text-white tracking-tight"
           >
             About Rezenait
           </motion.h1>
@@ -108,7 +108,7 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{once:true}}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl py-10 md:text-7xl font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
+              className="text-4xl py-10 md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
             >
               Our Core Values
             </motion.h1>
@@ -142,7 +142,7 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{once:true}}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent"
+              className="text-4xl md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent"
             >
               Meet Our Team
             </motion.h1>
@@ -212,7 +212,7 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl text-gray-700 font-bold mb-8 tracking-tight"
+            className="text-4xl md:text-5xl text-gray-700 font-bold mb-8 tracking-tight "
             >
             Based in Sri Lanka, Serving Globally
             </motion.h2>
@@ -223,7 +223,7 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-600 text-sm md:text-lg md:text-xl leading-relaxed font-normal max-w-5xl"
+            className="text-gray-600 text-sm md:text-lg md:text-xl leading-relaxed font-normal max-w-5xl pb-8"
             >
             Headquartered in Colombo, Sri Lanka, we serve clients across South Asia, Southeast Asia, and beyond. 
             Our AI consultancy combines local expertise with global best practices, delivering world-class AI 

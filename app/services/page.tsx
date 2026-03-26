@@ -30,6 +30,7 @@ const services = [
     icon: "/Services Page/TestIcon.svg",
     link:"/services#analytics-bi",
   },
+  
 ];
 
 const technologies = [
@@ -249,7 +250,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-6xl font-bold text-white tracking-tight"
+            className="text-4xl md:text-6xl font-extralight text-white tracking-tight"
           >
             AI Engineering Services
           </motion.h1>
@@ -274,24 +275,24 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white p-10 rounded-xl border border-[#007AA3] shadow-sm 
+                className="bg-white p-6 rounded-xl border border-[#007AA3] shadow-sm 
                            w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] 
                            hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group hover:bg-[#007AA3]/80 "
                 onClick={()=>{window.location.href=`${service.link}`}}
               >
                 <img
                     src={service.icon}
-                    className={`mb-8 w-16 h-16 rounded-2xl 
+                    className={`mb-8 w-12 h-12 rounded-2xl 
                                 flex items-center justify-center  
                                 group-hover:scale-110 transition-transform duration-300`}
                     alt={`${service.title}`}
                 />
                 
-                <h3 className="text-2xl font-bold text-gray-600 mb-4 leading-tight group-hover:text-gray-300">
+                <h3 className="text-2xl text-gray-600 mb-4 leading-tight group-hover:text-gray-300">
                   {service.title}
                 </h3>
                 
-                <p className="text-lg text-gray-600 leading-relaxed font-light group-hover:text-white">
+                <p className="text-gray-600 leading-relaxed font-light group-hover:text-white">
                   {service.description}
                 </p>
               </motion.div>
@@ -306,7 +307,7 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{once:true}}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-4xl md:text-7xl pt-20 text-center font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
+                className="text-4xl md:text-7xl pt-20 text-center font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
             >
                 Technologies & Tools We Master
             </motion.h1>
@@ -387,7 +388,7 @@ export default function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               viewport={{once:true}}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
+              className="text-4xl pb-5 md:pb-0 md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight "
           >
               AI/ML Engineering
           </motion.h1>
@@ -405,7 +406,7 @@ export default function ServicesPage() {
             <div className="max-w-full mx-auto overflow-hidden rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex flex-col md:flex-row bg-[#DCDCDC]/50 ">
                     
               {/* LEFT SIDE: THE CATEGORY PANEL */}
-              <div className="md:w-1/3 bg-[#097AC3] p-12 flex flex-col justify-center items-center text-center relative overflow-hidden text-start">
+              <div className="md:w-1/3 bg-white p-12 flex flex-col justify-center items-center text-center relative overflow-hidden text-start">
 
                 
                 <motion.h2 
@@ -413,40 +414,74 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{duration:0.8,}}
-                  className="text-white text-4xl md:text-xl font-black leading-tight relative z-10 "
+                  className="text-xl text-gray-600  md:text-2xl font-light leading-tight relative z-10 "
+                >
+                <span
+                  onClick={() => {
+                    setActiveTab("GenAI");
+                  }}
+                  className={`flex items-center gap-2 w-full cursor-pointer mb-2 
+                    transition-all duration-300 ease-out ${
+                      activeTab === "GenAI"
+                        ? "text-blue-900 translate-x-3"
+                        : "text-gray-400 hover:text-gray-700"
+                    }`}
                 >
                   <span
-                    onClick={() => {setActiveTab("GenAI"),console.log("Active CoreML")}}
-                      className={`block w-full cursor-pointer mb-2 transition-colors ${
-                        activeTab === "GenAI"
-                          ? "text-blue-900 font-bold"
-                          : "text-white hover:text-gray-300"
-                      }`}
-                  >
-                    {categoryNameGenAI}
-                  </span>
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      activeTab === "GenAI"
+                        ? "bg-[#21BBC6] opacity-100 scale-100"
+                        : "opacity-0 scale-50"
+                    }`}
+                  ></span>
 
-                  <span
-                    onClick={() => setActiveTab("CoreML")}
-                    className={`block w-full cursor-pointer mb-2 transition-colors ${
-                        activeTab === "CoreML"
-                          ? "text-blue-900 font-bold"
-                          : "text-white hover:text-gray-300"
-                      }`}
-                  >
-                    {categoryNameCoreML}
-                  </span>
+                  {categoryNameGenAI}
+                </span>
 
+                <span
+                  onClick={() => {
+                    setActiveTab("CoreML");
+                  }}
+                  className={`flex items-center gap-2 w-full cursor-pointer mb-2 
+                    transition-all duration-300 ease-out ${
+                      activeTab === "CoreML"
+                        ? "text-blue-900 font- translate-x-3"
+                        : "text-gray-400 hover:text-gray-700"
+                    }`}
+                >
                   <span
-                    onClick={() => setActiveTab("DeepLearning")}
-                    className={`block w-full cursor-pointer mb-2 transition-colors ${
-                        activeTab === "DeepLearning"
-                          ? "text-blue-900 font-bold"
-                          : "text-white hover:text-gray-300"
-                      }`}
-                  >
-                    {categoryNameDeepLearning}
-                  </span>
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      activeTab === "CoreML"
+                        ? "bg-[#21BBC6] opacity-100 scale-100"
+                        : "opacity-0 scale-50"
+                    }`}
+                  ></span>
+
+                  {categoryNameCoreML}
+                </span>
+
+                <span
+                  onClick={() => {
+                    setActiveTab("DeepLearning");
+                  }}
+                  className={`flex items-center gap-2 w-full cursor-pointer mb-2 
+                    transition-all duration-300 ease-out ${
+                      activeTab === "DeepLearning"
+                        ? "text-blue-900 translate-x-3"
+                        : "text-gray-400 hover:text-gray-700"
+                    }`}
+                >
+                  <span
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      activeTab === "DeepLearning"
+                        ? "bg-[#21BBC6] opacity-100 scale-100"
+                        : "opacity-0 scale-50"
+                    }`}
+                  ></span>
+
+                  {categoryNameGenAI}
+                </span>
+
 
 
                 </motion.h2>
@@ -454,7 +489,7 @@ export default function ServicesPage() {
                 <div className="mt-8 h-1 w-16 bg-white/40 rounded-full relative z-10" />
               </div>
               {/* RIGHT SIDE: CONDITIONAL CONTENT */}
-              <div className="md:w-2/3 p-8 md:p-16 flex items-center justify-center min-h-[400px]">
+              <div className="md:w-2/3 p-8 md:p-16 flex items-center justify-center min-h-[400px] bg-white">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeTab} // Unique key triggers animation on change
@@ -501,7 +536,7 @@ export default function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               viewport={{once:true}}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
+              className="text-4xl pb-5 md:pb-0 md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
           >
               Data Strategy & Engineering
           </motion.h1>
@@ -511,7 +546,7 @@ export default function ServicesPage() {
               whileInView={{opacity:1, y:0}}
               viewport={{once:true}}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className='text-center pb-20'
+              className='text-center py-5'
               >
               <span className='text-gray-600'>Strategic data architecture and engineering that transforms raw data into a valuable enterprise asset, enabling AI initiatives and data-driven decisions.</span>
           </motion.p>
@@ -519,25 +554,27 @@ export default function ServicesPage() {
           <div className="max-w-full mx-auto overflow-hidden rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex flex-col md:flex-row bg-[#DCDCDC]/50 ">
                   
             {/* LEFT SIDE: THE CATEGORY PANEL */}
-            <div className="md:w-1/3 bg-[#097AC3] p-12 flex flex-col justify-center items-center text-center relative overflow-hidden">
+            <div className="md:w-1/3 bg-white p-12 flex flex-col justify-center items-center text-center relative overflow-hidden">
               {/* Subtle background glow for premium feel */}
               <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/20 rounded-full blur-[80px]" />
               
-              <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{duration:0.8,}}
-                className="text-white text-4xl md:text-xl font-black leading-tight relative z-10 cursor-pointer"
-              >
-                {categoryNameData_Engineering}
-              </motion.h2>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex items-center gap-2 text-blue-900 text-xl md:text-2xl font-light leading-tight relative z-10 cursor-pointer"
+            >
+              <span className="w-2 h-2 bg-[#21BBC6] rounded-full"></span>
+              {categoryNameData_Engineering}
+            </motion.h2>
+             
               
               <div className="mt-8 h-1 w-16 bg-white/40 rounded-full relative z-10" />
             </div>
 
             {/* RIGHT SIDE: CENTERED GRID CONTENT */}
-            <div className="md:w-2/3 p-8 md:p-16 flex items-center justify-center">
+            <div className="md:w-2/3 p-8 md:p-16 flex items-center justify-center bg-white">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 w-full max-w-2xl">
                 {data_engineering_servicesDetails.map((service, index) => (
                   <motion.div
@@ -576,7 +613,7 @@ export default function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               viewport={{once:true}}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
+              className="text-4xl pb-5 md:pb-0 md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
           >
               Analytics & BI
           </motion.h1>
@@ -586,7 +623,7 @@ export default function ServicesPage() {
               whileInView={{opacity:1, y:0}}
               viewport={{once:true}}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className='text-center pb-20'
+              className='text-center py-5'
               >
               <span className='text-gray-600'>Comprehensive analytics and BI solutions that empower data-driven decision making with real-time insights and intuitive visualizations.</span>
           </motion.p>
@@ -594,17 +631,18 @@ export default function ServicesPage() {
         <div className="max-w-full mx-auto overflow-hidden rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex flex-col md:flex-row bg-[#DCDCDC]/50 ">
                 
           {/* LEFT SIDE: THE CATEGORY PANEL */}
-          <div className="md:w-1/3 bg-[#097AC3] p-12 flex flex-col justify-center items-center text-center relative overflow-hidden">
+          <div className="md:w-1/3 bg-white p-12 flex flex-col justify-center items-center text-center relative overflow-hidden">
             {/* Subtle background glow for premium feel */}
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/20 rounded-full blur-[80px]" />
             
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{duration:0.8,}}
-              className="text-white text-4xl md:text-xl font-black leading-tight relative z-10 cursor-pointer"
+              transition={{ duration: 0.8 }}
+              className="flex items-center gap-2 text-blue-900 text-xl md:text-2xl font-light leading-tight relative z-10 cursor-pointer"
             >
+              <span className="w-2 h-2 bg-[#21BBC6] rounded-full"></span>
               {categoryNameAnalytics_Bi}
             </motion.h2>
             
@@ -612,7 +650,7 @@ export default function ServicesPage() {
           </div>
 
           {/* RIGHT SIDE: CENTERED GRID CONTENT */}
-          <div className="md:w-2/3 p-8 md:p-16 flex items-center justify-center">
+          <div className="md:w-2/3 p-8 md:p-16 flex items-center justify-center bg-white">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 w-full max-w-2xl">
               {analytics_bi_servicesDetails.map((service, index) => (
                 <motion.div

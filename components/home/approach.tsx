@@ -48,7 +48,7 @@ function ScrollingNumber({ target }: { target: string }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.8 }}
       transition={{ duration: 0.5 }}
-      className="text-3xl md:text-3xl font-semibold text-[#040E77] block mb-2"
+      className="text-3xl md:text-3xl  text-[#040E77] block mb-2"
     >
       {target}
     </motion.span>
@@ -72,8 +72,8 @@ export default function Approach() {
   });
 
   return (
-    <section ref={containerRef} className="relative text-slate-900 ">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-24 md:grid-cols-2 lg:px-12">
+    <section ref={containerRef} className="relative text-slate-900 md:pb-15 ">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 md:py-10 py-14 md:grid-cols-2 lg:px-12">
         
         {/* LEFT SIDE: STICKY HEADER */}
         {/* h-fit is critical here to allow the right side to scroll past it */}
@@ -84,7 +84,7 @@ export default function Approach() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent leading-tight">
+            <h2 className="text-4xl md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent leading-tight">
               Our Proven Approach
             </h2>
             <p className="mt-8 max-w-md md:text-lg text-slate-600 leading-relaxed">
@@ -122,8 +122,8 @@ export default function Approach() {
                 initial={{ opacity: 0.2, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.8 }}
-                transition={{ duration: 0.5 }}
-                className="text-2xl font-semibold text-gray-700 tracking-tight">
+                transition={{ duration: 0.8 }}
+                className="text-2xl  text-gray-700 tracking-tight">
                   
                   {step.title}
                 </motion.h3>
@@ -134,7 +134,7 @@ export default function Approach() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
+                transition={{ duration: 0.8 }}
                 className="overflow-hidden rounded-xl border border-slate-100 shadow-2xl shadow-blue-900/5 group bg-white"
               >
                 

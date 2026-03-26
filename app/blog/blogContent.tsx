@@ -50,9 +50,9 @@ export default function BlogContent({initialBlogs, categories}:any){
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-4xl md:text-6xl font-bold text-white tracking-tight"
+                    className="text-4xl md:text-6xl font-extralight text-white tracking-tight"
                 >
-                    AI Engineering Insights & Blog
+                    Blog
                 </motion.h1>
                 
                 {/* Animated Sub-headline */}

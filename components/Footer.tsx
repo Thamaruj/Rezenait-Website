@@ -33,12 +33,12 @@ export default function Footer() {
                 Rezenait
               </Link>
               
-              <p className="text-sm text-gray-400 leading-relaxed pr-4">
+              <p className="text-sm text-gray-500 leading-relaxed pr-4">
                 Advanced AI engineering and data solutions for startups and enterprises.
               </p>
               {/* Social Icons */}
               <div className="flex items-center gap-4 mt-2">
-                <a href="https://www.linkedin.com/company/rezenait-pvt-ltd" className="text-blue-500 hover:text-white transition">
+                <a href="https://www.linkedin.com/company/rezenait-pvt-ltd" className="text-blue-500 hover:text-blue-600 transition">
                   <span className="sr-only">LinkedIn</span>
                   {/* LinkedIn SVG */}
                   <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
@@ -61,8 +61,8 @@ export default function Footer() {
 
             {/* Column 2: Services */}
             <div>
-              <h3 className="text-gray-500 font-semibold mb-6">Services</h3>
-              <ul className="flex flex-col gap-4 text-sm text-gray-400">
+              <h3 className="text-gray-800 font-semibold mb-6">Services</h3>
+              <ul className="flex flex-col gap-4 text-sm text-gray-500">
                 <li><Link href="/services" className="hover:text-blue-500 transition">AI/ML Engineering</Link></li>
                 <li><Link href="/services" className="hover:text-blue-500 transition">Data Strategy Engineering</Link></li>
                 <li><Link href="/services" className="hover:text-blue-500 transition">Analytics & BI</Link></li>
@@ -71,8 +71,8 @@ export default function Footer() {
 
             {/* Column 3: Company */}
             <div>
-              <h3 className="text-gray-500 font-semibold mb-6">Company</h3>
-              <ul className="flex flex-col gap-4 text-sm text-gray-400">
+              <h3 className="text-gray-800 font-semibold mb-6">Company</h3>
+              <ul className="flex flex-col gap-4 text-sm text-gray-500">
                 <li><Link href="/about" className="hover:text-blue-500 transition">About Us</Link></li>
                 <li><Link href="/blog" className="hover:text-blue-500 transition">Blog</Link></li>
                 <li><Link href="/careers" className="hover:text-blue-500 transition">Careers</Link></li>
@@ -82,8 +82,8 @@ export default function Footer() {
 
             {/* Column 4: Get in Touch */}
             <div>
-              <h3 className="text-gray-500 font-semibold mb-6">Get in Touch</h3>
-              <ul className="flex flex-col gap-4 text-sm text-gray-400">
+              <h3 className="text-gray-800 font-semibold mb-6">Get in Touch</h3>
+              <ul className="flex flex-col gap-4 text-sm text-gray-500">
                 <li>Colombo, Sri Lanka</li>
                 <li><a href="mailto:hello@rezenait.com" className="hover:text-blue-500 transition">hello@rezenait.com</a></li>
 
