@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rezenait.com
+
+# Sitemaps
+Sitemap: https://rezenait.com/sitemap.xml
