@@ -136,28 +136,45 @@ function JobCard({ job, onApply }: { job: Job; onApply: (job: Job) => void }) {
   );
 }
 
+
+
 // ─── Application Modal ───────────────────────────────────────────────────────
+
 function ApplicationModal({ job, onClose }: { job: Job; onClose: () => void }) {
   const [form, setForm] = useState({ name: "", email: "", phone: "", cv: null as File | null });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-    useEffect(() => {
+  // Lock body scroll while modal is open
+  useEffect(() => {
+    const original = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+    return () => { document.body.style.overflow = original; };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: wire up email submission here
-    alert("Application submitted! We'll be in touch soon.");
-    onClose();
+    if (!form.cv) return;
+    setStatus("loading");
+
+    try {
+      // Use FormData so the CV file is sent as a proper attachment
+      const data = new FormData();
+      data.append("name", form.name);
+      data.append("email", form.email);
+      data.append("phone", form.phone);
+      data.append("jobTitle", job.title);
+      data.append("cv", form.cv);
+
+      const res = await fetch("/api/careers", { method: "POST", body: data });
+      if (!res.ok) throw new Error();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
     <AnimatePresence>
-      {/* Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -165,7 +182,6 @@ function ApplicationModal({ job, onClose }: { job: Job; onClose: () => void }) {
         onClick={onClose}
         className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
       >
-        {/* Modal box — stop click from closing when clicking inside */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -174,21 +190,20 @@ function ApplicationModal({ job, onClose }: { job: Job; onClose: () => void }) {
           onClick={(e) => e.stopPropagation()}
           className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto"
         >
-
-          {/* Modal Header */}
+          {/* Header */}
           <div className="sticky top-0 bg-white border-b border-gray-100 px-8 py-5 flex items-center justify-between rounded-t-2xl z-10">
             <div>
               <h2 className="text-xl font-bold text-gray-900">{job.title}</h2>
               <div className="flex items-center gap-3 mt-1 text-sm text-gray-500">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#1bb9c4] flex-shrink-0" />{job.category && <span>{job.category}</span>}
-                <span className="w-1.5 h-1.5 rounded-full bg-[#1bb9c4] flex-shrink-0" />
+                {job.category && <span>{job.category}</span>}
+                <span>·</span>
                 <span>{job.location}</span>
-                {job.type && <><span className="w-1.5 h-1.5 rounded-full bg-[#1bb9c4] flex-shrink-0" /><span>{job.type}</span></>}
+                {job.type && <><span>·</span><span>{job.type}</span></>}
               </div>
             </div>
             <button
-              onClick={onClose} 
-              className="w-8 h-8 cursor-pointer rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors duration-200 text-gray-500"
+              onClick={onClose}
+              className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors text-gray-500"
             >
               ✕
             </button>
@@ -199,133 +214,152 @@ function ApplicationModal({ job, onClose }: { job: Job; onClose: () => void }) {
             {/* Full Job Description */}
             {job.description && (
               <div>
-                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-3">
-                  About the Role
-                </h3>
+                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-3">About the Role</h3>
                 <div className="text-gray-600 text-sm leading-relaxed prose prose-sm max-w-none">
                   <PortableText value={job.description} />
                 </div>
               </div>
             )}
 
-            {/* All Requirements */}
+            {/* Requirements */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-3">
-                Key Requirements
-              </h3>
+              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-3">Key Requirements</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {job.requirements.map((req, i) => (
                   <span key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#DF6C46] flex-shrink-0 mt-1.5" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] flex-shrink-0 mt-1.5" />
                     {req}
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* Divider */}
             <div className="border-t border-gray-100" />
 
-            {/* Application Form */}
-            <div>
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-5">
-                Your Application
-              </h3>
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-
-                {/* Name */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Full Name <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="John Doe"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition"
-                  />
+            {/* Success state */}
+            {status === "success" ? (
+              <div className="text-center py-10 space-y-3">
+                <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto">
+                  <svg className="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
                 </div>
-
-                {/* Email */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Email Address <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="john@example.com"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition"
-                  />
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Mobile Number <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+94 77 123 4567"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition"
-                  />
-                </div>
-
-                {/* CV Upload */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Upload CV <span className="text-red-400">*</span>
-                  </label>
-                  <div className="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center hover:border-[#2563EB] transition-colors duration-200">
-                    <input
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      required
-                      onChange={(e) => setForm({ ...form, cv: e.target.files?.[0] ?? null })}
-                      className="hidden"
-                      id="cv-upload"
-                    />
-                    <label htmlFor="cv-upload" className="cursor-pointer">
-                      {form.cv ? (
-                        <div className="flex items-center justify-center gap-2 text-[#2563EB] font-medium text-sm">
-                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          {form.cv.name}
-                        </div>
-                      ) : (
-                        <>
-                          <svg className="w-8 h-8 text-gray-300 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                          </svg>
-                          <p className="text-sm text-gray-500">
-                            <span className="text-[#2563EB] font-medium">Click to upload</span> or drag and drop
-                          </p>
-                          <p className="text-xs text-gray-400 mt-1">PDF, DOC, DOCX up to 10MB</p>
-                        </>
-                      )}
-                    </label>
-                  </div>
-                </div>
-
-                {/* Submit */}
+                <h3 className="text-lg font-semibold text-gray-900">Application Submitted!</h3>
+                <p className="text-sm text-gray-500">We'll review your application and get back to you soon.</p>
                 <button
-                  type="submit"
-                  className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold py-3.5 cursor-pointer rounded-xl transition-colors duration-200 text-sm"
+                  onClick={onClose}
+                  className="mt-4 px-6 py-2.5 rounded-xl bg-[#2563EB] text-white text-sm font-semibold hover:bg-[#1D4ED8] transition-colors"
                 >
-                  Submit Application
+                  Close
                 </button>
+              </div>
+            ) : (
+              /* Application Form */
+              <div>
+                <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-5">Your Application</h3>
 
-              </form>
-            </div>
+                {status === "error" && (
+                  <div className="mb-5 px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">
+                    Something went wrong. Please try again or email us directly.
+                  </div>
+                )}
+
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Name */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Full Name <span className="text-red-400">*</span></label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="John Doe"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Email Address <span className="text-red-400">*</span></label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="john@example.com"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition"
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Mobile Number <span className="text-red-400">*</span></label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="+94 77 123 4567"
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition"
+                    />
+                  </div>
+
+                  {/* CV Upload */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Upload CV <span className="text-red-400">*</span></label>
+                    <div className="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center hover:border-[#2563EB] transition-colors">
+                      <input
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        required
+                        onChange={(e) => setForm({ ...form, cv: e.target.files?.[0] ?? null })}
+                        className="hidden"
+                        id="cv-upload"
+                      />
+                      <label htmlFor="cv-upload" className="cursor-pointer">
+                        {form.cv ? (
+                          <div className="flex items-center justify-center gap-2 text-[#2563EB] font-medium text-sm">
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            {form.cv.name}
+                          </div>
+                        ) : (
+                          <>
+                            <svg className="w-8 h-8 text-gray-300 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                            </svg>
+                            <p className="text-sm text-gray-500">
+                              <span className="text-[#2563EB] font-medium">Click to upload</span> or drag and drop
+                            </p>
+                            <p className="text-xs text-gray-400 mt-1">PDF, DOC, DOCX up to 10MB</p>
+                          </>
+                        )}
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold py-3.5 rounded-xl transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  >
+                    {status === "loading" ? (
+                      <>
+                        <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                        </svg>
+                        Submitting...
+                      </>
+                    ) : (
+                      "Submit Application"
+                    )}
+                  </button>
+                </form>
+              </div>
+            )}
           </div>
         </motion.div>
       </motion.div>
