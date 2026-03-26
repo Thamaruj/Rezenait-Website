@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 
 const industries = [
-  { name: "Industry", icon: "/TestIconInIndustry.svg" },
-  { name: "Healthcare", icon: "/TestIconInIndustry.svg" },
-  { name: "Education", icon: "/TestIconInIndustry.svg" },
-  { name: "Retail", icon: "/TestIconInIndustry.svg" },
-  { name: "Logistics", icon: "/TestIconInIndustry.svg" },
-  { name: "Technology", icon: "/TestIconInIndustry.svg" },
+  { name: "Restaurant", icon: "Services Page/Home-service-restaurent.svg" },
+  { name: "Retail", icon: "Services Page/Home-service-retail.svg" },
+  { name: "Edtech", icon: "Services Page/Home-service-education.svg" },
+  { name: "Telco", icon: "Services Page/Home-service-telco.svg" },
+  { name: "Fintech", icon: "Services Page/Home-service-fintech.svg" },
+  { name: "Travel & Tourism", icon: "Services Page/Home-service-travel.svg" },
 ];
 
 export default function Industries() {
@@ -64,11 +64,11 @@ export default function Industries() {
               <img
                 src={item.icon}
                 alt={item.name}
-                className="w-30 h-30 md:w-40 md:h-40 mb-4"
+                className="w-20 h-20 md:w-30 md:h-30 mb-4"
               />
 
               {/* Name */}
-              <p className=" text-lg font-semibold">
+              <p className=" text-lg md:text-2xl font-light">
                 {item.name}
               </p>
             </div>

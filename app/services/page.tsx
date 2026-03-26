@@ -11,7 +11,7 @@ const services = [
     description: "Cutting-edge artificial intelligence solutions that drive business transformation through specialized model development.",
     iconColor: "from-blue-600 to-indigo-700",
     shadowColor: "shadow-blue-200",
-    icon: "/Services Page/TestIcon.svg",
+    icon: "/Icons/brain-8-svgrepo-com.svg",
     link:"/services#ai-ml-enginnering",
   },
   {
@@ -19,7 +19,7 @@ const services = [
     description: "Build a robust data foundation for AI and analytics excellence with scalable data pipeline development.",
     iconColor: "from-emerald-500 to-teal-700",
     shadowColor: "shadow-emerald-200",
-    icon: "/Services Page/TestIcon.svg",
+    icon: "/Icons/black-hole-svgrepo-com.svg",
     link:"/services#data-stratergy-engineering",
   },
   {
@@ -27,7 +27,7 @@ const services = [
     description: "Transform data into actionable insights and strategic advantage through real-time monitoring systems.",
     iconColor: "from-orange-500 to-red-700",
     shadowColor: "shadow-orange-200",
-    icon: "/Services Page/TestIcon.svg",
+    icon: "/Icons/diagram-up-svgrepo-com.svg",
     link:"/services#analytics-bi",
   },
   
@@ -76,27 +76,27 @@ const ai_ml_servicesDetails_CoreML= [
     {
       serviceCategory: "Core Machine Learning",
       serviceName: "Machine Learning",
-      src: "Services Page/TechStack/powerBI.svg"
+      src: "/Icons/box-minimalistic.svg"
     },
     {
       serviceCategory: "Core Machine Learning",
       serviceName: "Predictive Analytics",
-      src: "Services Page/TechStack/powerBI.svg"
+      src: "/Icons/box-minimalistic.svg"
     },
     {
       serviceCategory: "Core Machine Learning",
       serviceName: "Time Series Prediction",
-      src: "Services Page/TechStack/powerBI.svg"
+      src: "/Icons/box-minimalistic.svg"
     },
     {
       serviceCategory: "Core Machine Learning",
       serviceName: "Recommendation Systems",
-      src: "Services Page/TechStack/powerBI.svg"
+      src: "/Icons/box-minimalistic.svg"
     },
     {
       serviceCategory: "Core Machine Learning",
       serviceName: "MLOps",
-      src: "Services Page/TechStack/powerBI.svg"
+      src: "/Icons/box-minimalistic.svg"
     },
 ]
 
@@ -105,22 +105,22 @@ const ai_ml_servicesDetails_DeepLearning= [
     {
       serviceCategory: "Advanced Deep Learning",
       serviceName: "Deep Learning",
-      src: "Services Page/TechStack/powerBI.svg"
+      src: "/Icons/cpu.svg"
     },
     {
       serviceCategory: "Advanced Deep Learning",
       serviceName: "Computer Vision",
-      src: "Services Page/TechStack/powerBI.svg"
+      src: "/Icons/cpu.svg"
     },
     {
       serviceCategory: "Advanced Deep Learning",
       serviceName: "Voice AI",
-      src: "Services Page/TechStack/powerBI.svg"
+      src: "/Icons/cpu.svg"
     },
     {
       serviceCategory: "Advanced Deep Learning",
       serviceName: "Multimodal AI",
-      src: "Services Page/TechStack/powerBI.svg"
+      src: "/Icons/cpu.svg"
     }
 ]
 // Generative AI
@@ -129,32 +129,32 @@ const ai_ml_servicesDetails_GenAI= [
   {
     serviceCategory: "Generative AI",
     serviceName: "Large Language Models (LLMs)",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/magic-stick.svg"
   },
   {
     serviceCategory: "Generative AI",
     serviceName: "Agentic AI",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/magic-stick.svg"
   },
   {
     serviceCategory: "Generative AI",
     serviceName: "RAG (Retrieval-Augmented Generation)",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/magic-stick.svg"
   },
   {
     serviceCategory: "Generative AI",
     serviceName: "Natural Language Processing",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/magic-stick.svg"
   },
   {
     serviceCategory: "Generative AI",
     serviceName: "Document Intelligence",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/magic-stick.svg"
   },
   {
     serviceCategory: "Generative AI",
     serviceName: "Conversational AI (Chatbots)",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/magic-stick.svg"
   },
 
 
@@ -168,27 +168,27 @@ const data_engineering_servicesDetails = [
   {
     serviceCategory: "Data Engineering Services",
     serviceName: "Data Pipeline Design and Orchestration",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/server-square-cloud.svg"
   },
   {
     serviceCategory: "Data Engineering Services",
     serviceName: "ETL/ELT Processes",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/server-square-cloud.svg"
   },
   {
     serviceCategory: "Data Engineering Services",
     serviceName: "Data Warehousing",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/server-square-cloud.svg"
   },
   {
     serviceCategory: "Data Engineering Services",
     serviceName: "Data Governance",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/server-square-cloud.svg"
   },
   {
     serviceCategory: "Data Engineering Services",
     serviceName: "Data/ML Infrastructure",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/server-square-cloud.svg"
   }
 ];
 
@@ -196,22 +196,22 @@ const analytics_bi_servicesDetails = [
   {
     serviceCategory: "Analytics & BI Services",
     serviceName: "Descriptive & Predictive Analytics",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/chart-2.svg"
   },
   {
     serviceCategory: "Analytics & BI Services",
     serviceName: "Dashboards & Visualization",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/chart-2.svg"
   },
   {
     serviceCategory: "Analytics & BI Services",
     serviceName: "Reporting",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/chart-2.svg"
   },
   {
     serviceCategory: "Analytics & BI Services",
     serviceName: "KPI & Performance Tracking",
-    src: "Services Page/TechStack/powerBI.svg"
+    src: "/Icons/chart-2.svg"
   },
   
 ];
@@ -414,7 +414,7 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{duration:0.8,}}
-                  className="text-xl text-gray-600  md:text-2xl font-light leading-tight relative z-10 "
+                  className="text-xl text-gray-600  md:text-[1.8rem] font-light leading-tight relative z-10 "
                 >
                 <span
                   onClick={() => {
@@ -479,7 +479,7 @@ export default function ServicesPage() {
                     }`}
                   ></span>
 
-                  {categoryNameGenAI}
+                  {categoryNameDeepLearning}
                 </span>
 
 
@@ -563,7 +563,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="flex items-center gap-2 text-blue-900 text-xl md:text-2xl font-light leading-tight relative z-10 cursor-pointer"
+              className="flex items-center gap-2 text-blue-900 text-xl md:text-[1.8rem] font-light leading-tight relative z-10 cursor-pointer"
             >
               <span className="w-2 h-2 bg-[#21BBC6] rounded-full"></span>
               {categoryNameData_Engineering}
@@ -640,7 +640,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="flex items-center gap-2 text-blue-900 text-xl md:text-2xl font-light leading-tight relative z-10 cursor-pointer"
+              className="flex items-center gap-2 text-blue-900 text-xl md:text-[1.8rem] font-light leading-tight relative z-10 cursor-pointer"
             >
               <span className="w-2 h-2 bg-[#21BBC6] rounded-full"></span>
               {categoryNameAnalytics_Bi}
