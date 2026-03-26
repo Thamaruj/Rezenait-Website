@@ -78,22 +78,24 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="relative z-10 max-w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
           >
-            <div className="bg-white/70 backdrop-blur-sm border border-blue-500 rounded-3xl p-8 md:p-12 shadow-sm flex flex-col items-start transition-all hover:shadow-md group">
-              <div className="mb-6 flex items-center justify-center w-12 h-12 rounded-full bg-blue-50">
-                <Target className="w-6 h-6 text-blue-500" strokeWidth={1.5} />
-              </div>
-              <h2 className="text-3xl font-bold text-gray-700 mb-6 tracking-tight">Our Mission</h2>
-              <p className=" leading-relaxed text-gray-600 text-sm md:text-lg">
+            <div className="bg-white/70 backdrop-blur-sm border border-blue-300 rounded-3xl p-8 md:p-12 shadow-sm flex flex-col items-start transition-all hover:shadow-md group">
+
+            <h2 className="flex items-center gap-2 text-2xl font-light text-gray-700 mb-6 tracking-tight">
+              <span className="w-2 h-2 bg-[#d16404] rounded-full translate-y-[2px]"></span>
+              Our Mission
+            </h2>
+              <p className=" leading-relaxed text-gray-600 text-sm md:text-base">
                 To democratize access to world-class AI engineering expertise, helping startups and enterprises across Sri Lanka and beyond build intelligent systems that drive measurable business impact. We believe every organization should have access to cutting-edge AI consultancy and data engineering solutions.
               </p>
             </div>
 
-            <div className="bg-white/70 backdrop-blur-sm border border-blue-500 rounded-3xl p-8 md:p-12 shadow-sm flex flex-col items-start transition-all hover:shadow-md group">
-              <div className="mb-6 flex items-center justify-center w-12 h-12 rounded-full bg-blue-50">
-                <Eye className="w-6 h-6 text-blue-500" strokeWidth={1.5} />
-              </div>
-              <h2 className="text-3xl font-bold text-gray-700 mb-6 tracking-tight">Our Vision</h2>
-              <p className=" leading-relaxed text-gray-600 text-sm md:text-lg">
+            <div className="bg-white/70 backdrop-blur-sm border border-blue-300 rounded-3xl p-8 md:p-12 shadow-sm flex flex-col items-start transition-all hover:shadow-md group">
+
+            <h2 className="flex items-center gap-2 text-2xl font-light text-gray-700 mb-6 tracking-tight">
+              <span className="w-2 h-2 bg-[#d16404] rounded-full translate-y-[2px]"></span>
+              Our Vision
+            </h2>
+              <p className=" leading-relaxed text-gray-600 text-sm md:text-base">
                To be recognized as the leading AI engineering company in South Asia, known for delivering enterprise-grade RAG development services, agentic AI solutions, and scalable data infrastructure that powers the next generation of intelligent businesses.
               </p>
             </div>
@@ -122,13 +124,13 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-[#16ADF2] p-8 rounded-3xl flex flex-col items-center text-center shadow-lg border border-white/20 transition-transform hover:-translate-y-2 duration-300"
+                className="bg-white p-8 rounded-3xl flex flex-col items-center text-center shadow-lg border border-white/20 transition-transform hover:-translate-y-2 duration-300"
               >
                 <div className="w-16 h-16 mb-6 rounded-3xl flex items-center justify-center ">
                   <img src={item.icon} alt={item.value} />
                 </div>
-                <h3 className="text-white text-lg font-semibold mb-4 tracking-tight">{item.value}</h3>
-                <p className="text-white/90  font-light leading-relaxed">{item.description}</p>
+                <h3 className="text-gray-700 text-lg font-semibold mb-4 tracking-tight">{item.value}</h3>
+                <p className="text-gray-500  font-light leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -158,7 +160,7 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
                     <div
                     key={index}
                     
-                    className="flex-shrink-0 w-[180px] md:w-[280px] bg-white p-4 md:p-6 rounded-3xl shadow-md border border-blue-500 hover:shadow-2xl transition-all duration-300"
+                    className="flex-shrink-0 w-[180px] md:w-[280px] bg-white p-4 md:p-6 rounded-3xl shadow-md border border-blue-100 hover:shadow-2xl transition-all duration-300"
                     >
                     {/* Smaller margin-bottom on mobile */}
                     <div className="w-full aspect-square rounded-2xl overflow-hidden mb-4 md:mb-6 bg-slate-100">
@@ -170,8 +172,8 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
                     </div>
                     <div className="text-start">
                         {/* Responsive text size for the name */}
-                        <h3 className="text-sm md:text-base font-semibold text-gray-800 line-clamp-1">{member.name}</h3>
-                        <p className="text-[#097AC3] font-semibold text-[10px] md:text-sm uppercase my-2 line-clamp-1">{member.position}</p>
+                        <h3 className="text-sm md:text-lg font text-gray-800 line-clamp-1">{member.name}</h3>
+                        <p className="text-[#097AC3] font-light text-[10px] md:text-sm uppercase my-2 line-clamp-1">{member.position}</p>
                         {/*
                           <span className="text-gray-700 md:text-sm text-[10px] font-light bg-slate-100/75 px-3 py-1 rounded-full whitespace-nowrap">
                         {member.experience}

@@ -144,9 +144,9 @@ export default function ContactPage(){
                                         </div>
 
                                         <motion.button 
-                                            whileHover={{ scale: 1.005, y: -1.2 }}
-                                            transition={{duration:0.3}}
-                                            className="w-full bg-white border border-blue-300 hover:border-blue-500 text-blue-600 py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-blue-500/20 cursor-pointer"
+                                            whileHover={{ scale: 1.02, y: -2 }}
+                                            
+                                            className="w-full bg-blue-400 text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-xl shadow-blue-500/20 hover:bg-blue-500 "
                                             >
                                             Schedule Consultation
                                             <Send className="w-5 h-5 font-light" />
