@@ -52,7 +52,7 @@ export default function Differentiation() {
                         whileInView={{opacity:1, y:0}}
                         viewport={{once:true}}
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
+                        className="text-4xl md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
                     >
                         What Sets Us Apart
                     </motion.h1>
@@ -69,12 +69,12 @@ export default function Differentiation() {
                 </div>
             </main>
 
-            {/* 2. Alternating Content Section */}
+            
             <div className="w-full">
                 {points.map((point, index) => (
                     <div 
                         key={index}
-                        className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} w-full border-t border-gray-100`}
+                        className={`flex flex-col md:flex-row  w-full `}
                     >
                         {/* Image Block */}
                         <motion.div 
@@ -105,13 +105,15 @@ export default function Differentiation() {
                             transition={{ duration: 0.8, ease: "easeOut" }}
                             className='z-5'
                             >
-                                <div className="max-w-md mx-auto md:mx-0 z-6">
+                                <div className=" mx-auto md:mx-0 z-6">
+                                    {/*
                                     <img 
                                         src={point.icon} 
                                         alt="" 
                                         className='w-24 h-24'
                                     />
-                                    <h3 className="text-2xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+                                    */}
+                                    <h3 className="text-2xl md:text-3xl font-light text-slate-900 mb-4 leading-tight">
                                         {point.title}
                                     </h3>
                                     <p className="text-gray-600 text-lg leading-relaxed">
