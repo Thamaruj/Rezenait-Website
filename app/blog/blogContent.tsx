@@ -178,48 +178,91 @@ export default function BlogContent({ initialBlogs, categories }: any) {
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               onClick={() => setSelectedBlog(null)}
-              className="fixed inset-0 z-[100] bg-slate-900/80 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-6"
+              className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4"
             >
               <motion.div
-                initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 100, opacity: 0 }}
+                initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 60, opacity: 0 }}
+                transition={{ type: "spring", damping: 28, stiffness: 300 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white w-full max-w-5xl h-[95vh] sm:max-h-[90vh] rounded-t-[2rem] sm:rounded-[3rem] overflow-hidden flex flex-col relative shadow-2xl"
+                className="bg-white w-full sm:max-w-2xl rounded-t-3xl sm:rounded-2xl overflow-hidden max-h-[92vh] flex flex-col shadow-2xl"
               >
-                <button
-                  onClick={() => setSelectedBlog(null)}
-                  className="absolute top-4 right-4 md:top-8 md:right-8 z-20 bg-gray-100 p-2.5 rounded-full hover:bg-gray-200 transition-colors"
-                >
-                  <X size={18} className="text-gray-600" />
-                </button>
 
-                <div className="overflow-y-auto p-5 md:p-20">
-                  <div className="max-w-3xl mx-auto">
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-bold uppercase tracking-widest">
+                {/* ── Image header with bottom-to-top overlay ── */}
+                <div className="relative h-56 sm:h-72 flex-shrink-0 bg-gray-900">
+                  {selectedBlog.imageUrl && (
+                    <img
+                      src={selectedBlog.imageUrl}
+                      alt={selectedBlog.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  )}
+                  {/* Bottom-to-top dark overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                  {/* Close button */}
+                  <button
+                    onClick={() => setSelectedBlog(null)}
+                    className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/50 hover:bg-black/70 transition flex items-center justify-center text-white z-10"
+                    aria-label="Close"
+                  >
+                    <X size={16} />
+                  </button>
+
+                  {/* Bottom content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    {/* Category dot + label */}
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <span className="w-2 h-2 rounded-full bg-[#0066FF]" />
+                      <span className="text-white/80 text-xs font-medium uppercase tracking-wider">
                         {selectedBlog.mainCategory}
                       </span>
                     </div>
-                    <h1 className="text-2xl md:text-5xl font-black text-slate-900 mb-6 md:mb-8 leading-tight">
+
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight mb-3">
                       {selectedBlog.title}
-                    </h1>
-                    <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-8 md:mb-12 py-5 border-y border-gray-100">
-                      <div className="flex items-center gap-2 text-slate-500 text-sm font-medium">
-                        <User size={16} className="text-blue-500" /> {selectedBlog.author}
-                      </div>
-                      <div className="flex items-center gap-2 text-slate-500 text-sm font-medium">
-                        <Clock size={16} className="text-blue-500" /> {selectedBlog.readTime}
-                      </div>
-                    </div>
-                    <img
-                      src={selectedBlog.imageUrl}
-                      className="w-full aspect-video object-cover rounded-2xl md:rounded-[2rem] mb-8 md:mb-12 shadow-lg"
-                      alt={selectedBlog.title}
-                    />
-                    <div className="prose prose-blue prose-base md:prose-lg max-w-none text-slate-600 leading-relaxed font-light">
-                      <PortableText value={selectedBlog.content} />
+                    </h2>
+
+                    {/* Author + read time */}
+                    <div className="flex items-center gap-4 text-white/70 text-xs">
+                      <span className="flex items-center gap-1.5">
+                        <User size={12} /> {selectedBlog.author}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <Clock size={12} /> {selectedBlog.readTime}
+                      </span>
                     </div>
                   </div>
                 </div>
+
+                {/* ── Scrollable body ── */}
+                <div className="overflow-y-auto flex-1 px-5 py-6 space-y-5">
+                  {/* Topics */}
+                  {selectedBlog.topics?.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {selectedBlog.topics.map((topic: string) => (
+                        <span
+                          key={topic}
+                          className="px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full text-[11px] font-medium border border-blue-100"
+                        >
+                          {topic}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Intro */}
+                  {selectedBlog.intro && (
+                    <p className="text-gray-500 text-sm leading-relaxed border-l-2 border-[#0066FF] pl-4">
+                      {selectedBlog.intro}
+                    </p>
+                  )}
+
+                  {/* Full content */}
+                  <div className="prose prose-blue prose-sm max-w-none text-slate-600 leading-relaxed font-light">
+                    <PortableText value={selectedBlog.content} />
+                  </div>
+                </div>
+
               </motion.div>
             </motion.div>
           )}

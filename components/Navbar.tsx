@@ -114,7 +114,7 @@ export default function Navbar() {
               {/* CTA row */}
               <div className="px-5 pt-3 pb-4">
                 <Link
-                  href="/contact"
+                  href="/contact#schedule-consultation"
                   onClick={closeMenu}
                   className="block w-full text-center py-3 rounded-xl bg-gradient-to-r from-[#006EFF] to-[#071289] text-white text-sm font-semibold shadow-md shadow-blue-200 active:scale-95 transition-transform"
                 >

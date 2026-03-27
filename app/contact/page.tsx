@@ -125,7 +125,7 @@ export default function ContactPage() {
             </div>
 
             {/* RIGHT: Form */}
-            <div className="lg:w-7/12 w-full bg-[#DCDCDC]/25 p-8 md:p-14 rounded-2xl border border-blue-200 shadow-[0_20px_60px_rgba(0,0,0,0.06)]">
+            <div id="schedule-consultation" className="lg:w-7/12 w-full bg-[#DCDCDC]/25 p-8 md:p-14 rounded-2xl border border-blue-200 shadow-[0_20px_60px_rgba(0,0,0,0.06)]">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}

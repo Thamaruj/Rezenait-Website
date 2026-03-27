@@ -15,22 +15,22 @@ const coreValues = [
   {
     value: "Innovation First",
     description: "We stay at the cutting edge of AI research, constantly exploring new techniques in agentic AI development and RAG systems.",
-    icon: "/icons/coreValue.svg"
+    icon: "/icons/star-shine-svgrepo-com .svg"
   },
   {
     value: "Enterprise Quality",
     description: "Every solution is built with production-grade architecture, security, and scalability from day one.",
-    icon: "/icons/coreValue.svg"
+    icon: "/icons/shield-svgrepo-com.svg"
   },
   {
     value: "Results Driven",
     description: "We measure success by business outcomes: revenue growth, cost savings, and competitive advantage.",
-    icon: "/icons/coreValue.svg"
+    icon: "/icons/revote-svgrepo-com.svg"
   },
   {
     value: "Partnership Mindset",
     description: "Your success is our success. We work as an extension of your team, not just a vendor.",
-    icon: "/icons/coreValue.svg"
+    icon: "/icons/share-circle-svgrepo-com.svg"
   },
 ]
 
@@ -81,9 +81,10 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
               Our Company Story
             </motion.h1>
 
-            <div className="max-w-6xl mb-[-70] text-gray-600">
-              Rezenait was formed by college friends who spent their university years solving complex, real-world problems beyond the classroom. What began as curiosity-driven experimentation during their academic journey naturally evolved into building industry-level intelligence solutions. That experience shaped our approach today to build real world intelligent system
-            </div>
+            <div className=" mb-[-70] text-gray-600">
+              Rezenait was formed by college friends who spent their university years solving complex, real-world problems beyond the classroom. What began as curiosity-driven experimentation during their academic journey gradually evolved into building industry-level intelligent solutions. From late-night problem solving to hands-on projects, they developed a strong foundation in turning ideas into practical, scalable systems.
+
+              That early experience continues to shape our approach today. We focus on creating real-world intelligent systems that are not only technically sound but also meaningful and impactful. At Rezenait, we believe in combining innovation with practicality, ensuring that every solution we build addresses genuine challenges and delivers lasting value.            </div>
           </div>
 
         {/* Mission & Vision */}
@@ -109,7 +110,7 @@ export default function AboutContent({ team }: { team: TeamMember[] }) {
             <div className="bg-white/70 backdrop-blur-sm border border-blue-300 rounded-3xl p-8 md:p-12 shadow-sm flex flex-col items-start transition-all hover:shadow-md group">
 
             <h2 className="flex items-center gap-2 text-2xl font-light text-gray-700 mb-6 tracking-tight">
-              <span className="w-2 h-2 bg-[#d16404] rounded-full translate-y-[2px]"></span>
+              <span className="w-2 h-2 bg-[#1bb9c4] rounded-full translate-y-[2px]"></span>
               Our Vision
             </h2>
               <p className=" leading-relaxed text-gray-600 text-sm md:text-base">

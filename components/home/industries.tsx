@@ -42,7 +42,7 @@ export default function Industries() {
 
       {/* Background section */}
       <div
-        className="w-full bg-cover bg-center bg-no-repeat py-15 md:py-20 overflow-hidden"
+        className="w-full max-h-[380px] bg-cover bg-center bg-no-repeat py-10 overflow-hidden"
         style={{ backgroundImage: "url('/IndustriesWeServe-bg.svg')" }}
       >
         <motion.div
@@ -57,7 +57,7 @@ export default function Industries() {
           {duplicatedIndustries.map((item, index) => (
             <div
               key={index}
-              className="w-50 h-50 md:h-80 md:w-80 flex flex-col items-center justify-center text-xl font-semibold shrink-0 rounded-2xl bg-cover bg-center"
+              className="w-50 h-50 md:h-60 md:w-60 flex flex-col items-center justify-center text-xl font-semibold shrink-0 rounded-2xl bg-cover bg-center"
               style={{ backgroundImage: "url('/IndustriesNoiseCard.svg')" }}
             >
               {/* Icon */}

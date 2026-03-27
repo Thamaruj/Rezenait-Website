@@ -15,7 +15,7 @@ export default function services(){
                         animate={{ opacity: 1, y: 0 }}
                         viewport={{once:true}}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="text-4xl md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
+                        className="text-4xl md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight pb-5"
                     >
                         AI Solutions That Power Your Growth
                     </motion.h1>
@@ -26,7 +26,7 @@ export default function services(){
                         viewport={{once:true}}
                         className='text-center mb-16'
                         >
-                        <span className='text-gray-600'>Comprehensive AI and data engineering solutions designed to accelerate your digital transformation</span>
+                        <span className='text-gray-600 '>Comprehensive AI and data engineering solutions designed to accelerate your digital transformation</span>
                     </motion.p>
                 </div>
                 

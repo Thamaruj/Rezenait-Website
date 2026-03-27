@@ -32,7 +32,7 @@ export default function bottomCTA(){
                         Let's discuss how our AI engineering expertise can transform your business. Schedule a free consultation with our team.
                     </motion.p>
 
-                    <Link href={"/contact"}>
+                    <Link href={"/contact#schedule-consultation"}>
                         <motion.button 
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}

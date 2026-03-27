@@ -19,7 +19,7 @@ const services = [
     description: "Build a robust data foundation for AI and analytics excellence with scalable data pipeline development.",
     iconColor: "from-emerald-500 to-teal-700",
     shadowColor: "shadow-emerald-200",
-    icon: "/Icons/black-hole-svgrepo-com.svg",
+    icon: "/Icons/database-svgrepo-com.svg",
     link:"/services#data-stratergy-engineering",
   },
   {
@@ -76,27 +76,27 @@ const ai_ml_servicesDetails_CoreML= [
     {
       serviceCategory: "Core Machine Learning",
       serviceName: "Machine Learning",
-      src: "/Icons/box-minimalistic.svg"
+      src: "/Icons/Ml.svg"
     },
     {
       serviceCategory: "Core Machine Learning",
       serviceName: "Predictive Analytics",
-      src: "/Icons/box-minimalistic.svg"
+      src: "/Icons/PredicvtiveAnalysis.svg"
     },
     {
       serviceCategory: "Core Machine Learning",
       serviceName: "Time Series Prediction",
-      src: "/Icons/box-minimalistic.svg"
+      src: "/Icons/TimeSeriesPrediction.svg"
     },
     {
       serviceCategory: "Core Machine Learning",
       serviceName: "Recommendation Systems",
-      src: "/Icons/box-minimalistic.svg"
+      src: "/Icons/Recommendation.svg"
     },
     {
       serviceCategory: "Core Machine Learning",
       serviceName: "MLOps",
-      src: "/Icons/box-minimalistic.svg"
+      src: "/Icons/MLOps.svg"
     },
 ]
 
@@ -105,22 +105,22 @@ const ai_ml_servicesDetails_DeepLearning= [
     {
       serviceCategory: "Advanced Deep Learning",
       serviceName: "Deep Learning",
-      src: "/Icons/cpu.svg"
+      src: "/Icons/Deep Learning.svg"
     },
     {
       serviceCategory: "Advanced Deep Learning",
       serviceName: "Computer Vision",
-      src: "/Icons/cpu.svg"
+      src: "/Icons/ComputerVision.svg"
     },
     {
       serviceCategory: "Advanced Deep Learning",
       serviceName: "Voice AI",
-      src: "/Icons/cpu.svg"
+      src: "/Icons/VoiceAI.svg"
     },
     {
       serviceCategory: "Advanced Deep Learning",
       serviceName: "Multimodal AI",
-      src: "/Icons/cpu.svg"
+      src: "/Icons/MultiModalAI.svg"
     }
 ]
 // Generative AI
@@ -129,12 +129,12 @@ const ai_ml_servicesDetails_GenAI= [
   {
     serviceCategory: "Generative AI",
     serviceName: "Large Language Models (LLMs)",
-    src: "/Icons/magic-stick.svg"
+    src: "/Icons/Llm.svg"
   },
   {
     serviceCategory: "Generative AI",
     serviceName: "Agentic AI",
-    src: "/Icons/magic-stick.svg"
+    src: "/Icons/Agent.svg"
   },
   {
     serviceCategory: "Generative AI",
@@ -144,17 +144,17 @@ const ai_ml_servicesDetails_GenAI= [
   {
     serviceCategory: "Generative AI",
     serviceName: "Natural Language Processing",
-    src: "/Icons/magic-stick.svg"
+    src: "/Icons/Nlp.svg"
   },
   {
     serviceCategory: "Generative AI",
     serviceName: "Document Intelligence",
-    src: "/Icons/magic-stick.svg"
+    src: "/Icons/Document Intelligence.svg"
   },
   {
     serviceCategory: "Generative AI",
     serviceName: "Conversational AI (Chatbots)",
-    src: "/Icons/magic-stick.svg"
+    src: "/Icons/Chatbot.svg"
   },
 
 
@@ -168,7 +168,7 @@ const data_engineering_servicesDetails = [
   {
     serviceCategory: "Data Engineering Services",
     serviceName: "Data Pipeline Design and Orchestration",
-    src: "/Icons/server-square-cloud.svg"
+    src: "/Icons/DataPipelineDesign.svg"
   },
   {
     serviceCategory: "Data Engineering Services",
@@ -178,17 +178,17 @@ const data_engineering_servicesDetails = [
   {
     serviceCategory: "Data Engineering Services",
     serviceName: "Data Warehousing",
-    src: "/Icons/server-square-cloud.svg"
+    src: "/Icons/DataWarehousing.svg"
   },
   {
     serviceCategory: "Data Engineering Services",
     serviceName: "Data Governance",
-    src: "/Icons/server-square-cloud.svg"
+    src: "/Icons/DataGovernance.svg"
   },
   {
     serviceCategory: "Data Engineering Services",
     serviceName: "Data/ML Infrastructure",
-    src: "/Icons/server-square-cloud.svg"
+    src: "/Icons/MLInfrastructure.svg"
   }
 ];
 
@@ -196,22 +196,22 @@ const analytics_bi_servicesDetails = [
   {
     serviceCategory: "Analytics & BI Services",
     serviceName: "Descriptive & Predictive Analytics",
-    src: "/Icons/chart-2.svg"
+    src: "/Icons/Analysis.svg"
   },
   {
     serviceCategory: "Analytics & BI Services",
     serviceName: "Dashboards & Visualization",
-    src: "/Icons/chart-2.svg"
+    src: "/Icons/DashboardVisualization.svg"
   },
   {
     serviceCategory: "Analytics & BI Services",
     serviceName: "Reporting",
-    src: "/Icons/chart-2.svg"
+    src: "/Icons/Reporting.svg"
   },
   {
     serviceCategory: "Analytics & BI Services",
     serviceName: "KPI & Performance Tracking",
-    src: "/Icons/chart-2.svg"
+    src: "/Icons/PerformanceTracking.svg"
   },
   
 ];
