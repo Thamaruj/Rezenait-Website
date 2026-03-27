@@ -15,22 +15,22 @@ const coreValues = [
   {
     value: "Innovation First",
     description: "We stay at the cutting edge of AI research, constantly exploring new techniques in agentic AI development and RAG systems.",
-    icon: "/icons/star-shine-svgrepo-com .svg"
+    icon: "/Icons/star-shine-svgrepo-com.svg"
   },
   {
     value: "Enterprise Quality",
     description: "Every solution is built with production-grade architecture, security, and scalability from day one.",
-    icon: "/icons/shield-svgrepo-com.svg"
+    icon: "/Icons/shield-svgrepo-com.svg"
   },
   {
     value: "Results Driven",
     description: "We measure success by business outcomes: revenue growth, cost savings, and competitive advantage.",
-    icon: "/icons/revote-svgrepo-com.svg"
+    icon: "/Icons/revote-svgrepo-com.svg"
   },
   {
     value: "Partnership Mindset",
     description: "Your success is our success. We work as an extension of your team, not just a vendor.",
-    icon: "/icons/share-circle-svgrepo-com.svg"
+    icon: "/Icons/share-circle-svgrepo-com.svg"
   },
 ]
 

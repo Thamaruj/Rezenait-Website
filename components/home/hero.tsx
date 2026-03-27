@@ -1,6 +1,7 @@
 "use client"; // This lets animations play in the browser!
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -36,12 +37,14 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
-            <button className="group mt-10 flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-light text-white shadow-md transition-all duration-300 ease-out hover:bg-blue-700 hover:shadow-lg md:hover:-translate-y-1 hover:scale-[1.02] cursor-pointer active:scale-95">
-              Get Started
-              <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </button>
+            <Link href={"/contact"}>
+              <button className="group mt-10 flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-light text-white shadow-md transition-all duration-300 ease-out hover:bg-blue-700 hover:shadow-lg md:hover:-translate-y-1 hover:scale-[1.02] cursor-pointer active:scale-95">
+                Get Started
+                <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+                  &rarr;
+                </span>
+              </button>
+            </Link>
           </motion.div>
         </div>
       </main> 

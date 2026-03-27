@@ -417,9 +417,9 @@ export default function CareersPage({ jobs = [] }: CareersPageProps) {
                     className="bg-white p-5 sm:p-6 rounded-2xl flex flex-col items-center text-center shadow-md border border-white/20 hover:-translate-y-1 transition-transform duration-300"
                   >
                     <div className="w-14 h-14 mb-4 rounded-2xl flex items-center justify-center">
-                      <img src={perk.icon} alt={perk.label} className="w-9 h-9" />
+                      <img src={perk.icon} alt={perk.label} className="w-15 h-15" />
                     </div>
-                    <h3 className="text-gray-700 text-sm font-semibold tracking-tight">{perk.label}</h3>
+                    <h3 className="text-gray-700 font-semibold tracking-tight">{perk.label}</h3>
                     <p className="text-gray-500 text-xs sm:text-sm font-light leading-relaxed mt-2">{perk.description}</p>
                   </motion.div>
                 ))}
@@ -492,6 +492,7 @@ export default function CareersPage({ jobs = [] }: CareersPageProps) {
             </div>
           )}
         </div>
+
 
       </main>
     </>

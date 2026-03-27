@@ -45,15 +45,15 @@ const technologies = [
   { name: "ApacheAirflow", src:'Services Page/TechStack/apacheAirflow.svg', category:"Data"},
   { name: "ApacheHive", src:'Services Page/TechStack/hive.svg', category:"Data"},
   { name: "Snowflake", src:'Services Page/TechStack/snowflake.svg', category:"CoreML"},
-  { name: "ScikitLearn", src:'Services Page/TechStack/scikitlearn.svg', category:"CoreML"},
+  { name: "ScikitLearn", src:'Services Page/TechStack/scikitLearn.svg', category:"CoreML"},
   { name: "PyTorch", src:'Services Page/TechStack/pyTorch.svg', category:"CoreML"},
   { name: "LightGBM", src:'Services Page/TechStack/lightGBM.svg', category:"CoreML"},
-  { name: "MLFlow", src:'Services Page/TechStack/mlFLow.svg', category:"CoreML"},
+  { name: "MLFlow", src:'Services Page/TechStack/mlFlow.svg', category:"CoreML"},
   { name: "LangChain.svg", src:'Services Page/TechStack/langChain.svg', category:"GenAI"},
   { name: "LangGraph", src:'Services Page/TechStack/langGraph.svg', category:"GenAI"},
   { name: "CrewAI", src:'Services Page/TechStack/crewAI.svg', category:"GenAI"},
   { name: "HuggingFace", src:'Services Page/TechStack/huggingFace.svg', category:"GenAI"},
-  { name: "Llama", src:'Services Page/TechStack/llama.svg', category:"GenAI"},
+  { name: "Llama", src:'Services Page/TechStack/Llama.svg', category:"GenAI"},
   { name: "ChatGPT", src:'Services Page/TechStack/chatGPT.svg', category:"GenAI"},
   { name: "Claude", src:'Services Page/TechStack/claude.svg', category:"GenAI"},
   { name: "QDrant", src:'Services Page/TechStack/qdrant.svg', category:"GenAI"},
@@ -563,7 +563,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="flex items-center gap-2 text-blue-900 text-xl md:text-[1.8rem] font-light leading-tight relative z-10 cursor-pointer"
+              className="flex items-center gap-2 text-blue-900 text-xl md:text-[1.6rem] font-light leading-tight relative z-10 cursor-pointer"
             >
               <span className="w-2 h-2 bg-[#21BBC6] rounded-full"></span>
               {categoryNameData_Engineering}
@@ -640,7 +640,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="flex items-center gap-2 text-blue-900 text-xl md:text-[1.8rem] font-light leading-tight relative z-10 cursor-pointer"
+              className="flex items-center gap-2 text-blue-900 text-xl md:text-[1.6rem] font-light leading-tight relative z-10 cursor-pointer"
             >
               <span className="w-2 h-2 bg-[#21BBC6] rounded-full"></span>
               {categoryNameAnalytics_Bi}

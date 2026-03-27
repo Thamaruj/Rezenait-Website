@@ -132,7 +132,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
                 <h3 className="text-2xl md:text-3xl font-light text-gray-700 mb-10">
-                  Schedule Your Consultation
+                  Schedule Your Consultat
                 </h3>
 
                 {/* Success message */}
@@ -202,7 +202,7 @@ export default function ContactPage() {
                     type="submit"
                     disabled={status === "loading"}
                     whileHover={status !== "loading" ? { scale: 1.02, y: -2 } : {}}
-                    className="w-full  cursor-pointer bg-blue-400 text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-xl shadow-blue-500/20 hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                    className="w-full  cursor-pointer bg-white border border-blue-600 text-blue-600 font-light py-5 rounded-lg flex items-center justify-center gap-3 shadow-xl shadow-blue-500/20 hover:bg-blue-600 hover:text-white disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
                   >
                     {status === "loading" ? (
                       <>
