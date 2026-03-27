@@ -146,7 +146,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 // ─── Featured Card ────────────────────────────────────────────────────────────
 
 function FeaturedCard({ project, index, onOpen }: { project: Project; index: number; onOpen: () => void }) {
-  const isEven = index % 2 === 0;
+
 
   return (
     <motion.div
@@ -159,8 +159,7 @@ function FeaturedCard({ project, index, onOpen }: { project: Project; index: num
     >
       {/* Image side */}
       <div
-        className={`relative w-full md:w-[42%] min-h-[200px] md:min-h-0 flex-shrink-0 bg-gradient-to-br from-[#040E77] to-[#3643D9] ${
-          !isEven ? "md:order-last" : ""
+        className={`relative w-full md:w-[42%] min-h-[200px] md:min-h-0 flex-shrink-0 bg-gradient-to-br from-[#040E77] to-[#3643D9]
         }`}
       >
         <div className="absolute inset-0 opacity-25 bg-[radial-gradient(ellipse_at_bottom_left,_#fff_0%,_transparent_60%)]" />
