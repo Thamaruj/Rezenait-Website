@@ -41,13 +41,6 @@ export const portfolio = defineType({
       validation: (R) => R.required(),
     }),
     defineField({
-      name: "badgeColor",
-      title: "Badge Color",
-      description: "Tailwind bg + text classes, e.g. bg-[#3643D9] text-white",
-      type: "string",
-      initialValue: "bg-[#3643D9] text-white",
-    }),
-    defineField({
       name: "image",
       title: "Cover Image",
       type: "image",

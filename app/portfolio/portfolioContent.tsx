@@ -73,38 +73,58 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
       {/* Panel */}
       <motion.div
-        className="relative bg-white w-full sm:max-w-2xl rounded-t-3xl sm:rounded-2xl overflow-hidden max-h-[92vh] flex flex-col"
+        className="relative bg-white w-full sm:max-w-5xl rounded-t-3xl sm:rounded-2xl overflow-hidden max-h-[92vh] flex flex-col"
         initial={{ y: 60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 60, opacity: 0 }}
         transition={{ type: "spring", damping: 28, stiffness: 300 }}
       >
-        {/* Image header */}
-        <div className="relative h-44 sm:h-56 flex-shrink-0 bg-gradient-to-br from-[#040E77] to-[#3643D9]">
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_#fff_0%,_transparent_70%)]" />
-          <div className="absolute top-4 left-4">
-            <span className={`text-xs font-semibold px-3 py-1 rounded-full ${project.badgeColor}`}>
-              {project.badge}
-            </span>
-          </div>
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 transition flex items-center justify-center text-white"
-            aria-label="Close"
-          >
-            ✕
-          </button>
-          <div className="absolute bottom-4 left-4 right-4">
-            <h2 className="text-2xl text-white">{project.title}</h2>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {project.tags?.map((t) => (
-                <span key={t} className="text-[11px] px-2 py-0.5 rounded-full bg-white/20 text-white/90">
-                  {t}
-                </span>
-              ))}
-            </div>
+      {/* Image header */}
+      <div className="relative h-44 sm:h-56 flex-shrink-0 overflow-hidden bg-gradient-to-br from-[#040E77] to-[#3643D9]">
+
+        {/* Image */}
+        {project.imageUrl && (
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
+
+        {/* Overlay (above image) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+
+
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute cursor-pointer top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/80 hover:bg-black/40 transition flex items-center justify-center text-white"
+          aria-label="Close"
+        >
+          ✕
+        </button>
+
+        {/* Bottom content */}
+        <div className="absolute bottom-2 left-4 right-4 z-10">
+          <span className="font-light text-sm text-gray-200 flex items-center gap-2">
+            <span className="w-2 h-2 bg-[#1bb9c4] rounded-full inline-block"></span>
+            {project.badge}
+          </span>
+          <h2 className="text-2xl text-white">{project.title}</h2>
+                    
+          <div className="flex flex-wrap gap-2 mt-2">
+            {project.tags?.map((t) => (
+              <span
+                key={t}
+                className="text-[11px] px-2 py-0.5 rounded-full bg-white/20 text-white/90"
+              >
+                {t}
+              </span>
+            ))}
           </div>
         </div>
+
+      </div>
 
         {/* Scrollable body */}
         <div className="overflow-y-auto flex-1 px-5 py-5 space-y-5">
@@ -131,7 +151,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             .filter((b) => b.value)
             .map((block) => (
               <div key={block.label}>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-[#3643D9] mb-1">
+                <h4 className="text-xs  uppercase tracking-widest text-[#3643D9] mb-1">
                   {block.label}
                 </h4>
                 <p className="text-gray-600 text-sm leading-relaxed">{block.value}</p>
@@ -157,11 +177,21 @@ function FeaturedCard({ project, index, onOpen }: { project: Project; index: num
       className="relative rounded-2xl border border-gray-100 shadow-lg overflow-hidden bg-white flex flex-col md:flex-row"
       style={{ minHeight: 260 }}
     >
-      {/* Image side */}
-      <div
-        className={`relative w-full md:w-[42%] min-h-[200px] md:min-h-0 flex-shrink-0 bg-gradient-to-br from-[#040E77] to-[#3643D9]
-        }`}
-      >
+      <div className="relative w-full md:w-[42%] min-h-[200px] md:min-h-0 flex-shrink-0 overflow-hidden">
+        
+        {project.imageUrl ? (
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          // fallback if no image
+          <div className="w-full h-full bg-gradient-to-br from-[#040E77] to-[#3643D9]" />
+        )}
+
+        {/* Overlay effects (keep your design 👇) */}
+        <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 opacity-25 bg-[radial-gradient(ellipse_at_bottom_left,_#fff_0%,_transparent_60%)]" />
         <div className="absolute bottom-4 right-4 w-20 h-20 rounded-full border-2 border-white/20" />
         <div className="absolute top-6 left-6 w-10 h-10 rounded-lg border border-white/30 rotate-12" />
@@ -170,11 +200,12 @@ function FeaturedCard({ project, index, onOpen }: { project: Project; index: num
       {/* Content side */}
       <div className="flex-1 p-5 md:p-7 flex flex-col justify-between">
         <div>
-          <span className={`text-xs font-light px-3 py-1 rounded-full ${project.badgeColor}`}>
+          <span className="font-light text-gray-500 flex items-center gap-2 text-sm">
+            <span className="w-2 h-2 bg-[#1bb9c4] rounded-full inline-block"></span>
             {project.badge}
           </span>
-          <h3 className="mt-3 text-xl md:text-2xl font-bold text-gray-900">{project.title}</h3>
-          <p className="mt-2 text-sm text-gray-500 leading-relaxed line-clamp-3">{project.shortDescription}</p>
+          <h3 className="mt-3 text-xl md:text-2xl text-gray-700">{project.title}</h3>
+          <p className="mt-2 text-sm text-gray-500 font-light leading-relaxed line-clamp-3">{project.shortDescription}</p>
           <div className="flex flex-wrap gap-2 mt-3">
             {project.tags?.map((t) => (
               <span key={t} className="text-[11px] px-2.5 py-1 rounded-full bg-[#3643D9]/10 text-[#3643D9] font-medium">
@@ -194,7 +225,7 @@ function FeaturedCard({ project, index, onOpen }: { project: Project; index: num
 
         <button
           onClick={onOpen}
-          className="mt-4 self-start text-sm text-[#3643D9] hover:text-[#040E77] flex items-center gap-1.5 transition-colors group"
+          className="mt-4 cursor-pointer self-start text-sm text-[#3643D9] hover:text-[#040E77] flex items-center gap-1.5 transition-colors group"
         >
           View Case Study
           <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
@@ -216,21 +247,32 @@ function GridCard({ project, index, onOpen }: { project: Project; index: number;
       className="group rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden bg-white flex flex-col cursor-pointer"
       onClick={onOpen}
     >
-      {/* Image area */}
-      <div className="relative h-36 bg-gradient-to-br from-[#040E77] to-[#3643D9] flex-shrink-0 overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_#fff_0%,_transparent_70%)]" />
-        <div className="absolute bottom-0 left-0 right-0 p-3 flex items-end justify-between">
-          <h3 className="text-white font-semibold text-sm leading-snug max-w-[70%]">{project.title}</h3>
-          <span className={`text-[10px]  px-2 py-0.5 rounded-full ${project.badgeColor} flex-shrink-0`}>
-            {project.badge}
-          </span>
-        </div>
-      </div>
+{/* Image area */}
+<div className="relative h-36 bg-gradient-to-br from-[#040E77] to-[#3643D9] flex-shrink-0 overflow-hidden">
+
+  {/* Actual image */}
+  {project.imageUrl && (
+    <img
+      src={project.imageUrl}
+      alt={project.title}
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+  )}
+
+  {/* Overlay (keep this ABOVE image) */}
+  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_#fff_0%,_transparent_70%)]" />
+
+</div>
 
       {/* Body */}
       <div className="p-4 flex flex-col flex-1">
+        <span className="font-light text-gray-500 flex items-center gap-2 text-sm pb-2">
+          <span className="w-2 h-2 bg-[#1bb9c4] rounded-full inline-block "></span>
+          {project.badge}
+        </span>
+         <h3 className="text-gray-600 pb-3  leading-snug max-w-[70%]">{project.title}</h3>
         <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 flex-1">{project.shortDescription}</p>
-        <button className="mt-3 text-xs text-[#3643D9] flex items-center gap-1 group-hover:gap-2 transition-all">
+        <button className="mt-3 cursor-pointer text-xs text-[#3643D9] flex items-center gap-1 group-hover:gap-2 transition-all">
           Learn More <span>→</span>
         </button>
       </div>
@@ -292,7 +334,7 @@ export default function PortfolioContent({ featuredProjects, moreProjects }: Por
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl pb-3 md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent "
+              className="text-4xl mt-15 md:mt-0 pb-3 md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent "
             >
               Featured Projects
             </motion.h2>
@@ -322,7 +364,7 @@ export default function PortfolioContent({ featuredProjects, moreProjects }: Por
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent"
+              className="text-4xl md:text-7xl pb-4 font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent"
             >
               Discover More Projects
             </motion.h2>
