@@ -132,7 +132,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
                 <h3 className="text-2xl md:text-3xl font-light text-gray-700 mb-10">
-                  Schedule Your Consultat
+                  Schedule Consultation
                 </h3>
 
                 {/* Success message */}
