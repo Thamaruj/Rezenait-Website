@@ -1,132 +1,157 @@
 "use client";
-import { motion } from 'framer-motion';
 
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const points = [
   {
-    icon: "/Icons/Difff.svg",
-    title: "Problem-First, Not Product-First",
-    description: "We Hang our Hat on Problem Solving, not Trying to Plug Generic AI Solutions.",
-    image: "/Test Image.webp" 
+    number: "01",
+    title: "Problem-First,\nNot Product-First",
+    description:
+      "We hang our hat on problem solving — not trying to plug generic AI solutions into your business. Every engagement starts with deep discovery.",
+    image: "/Test Image.webp",
   },
   {
-    icon: "/Icons/Difff.svg",
-    title: "Data Driven, not Model Driven",
-    description: "Garbage IN = Garbage OUT",
-    image: "/Test Image.webp"
+    number: "02",
+    title: "Data Driven,\nNot Model Driven",
+    description:
+      "Garbage in equals garbage out. Before any model is trained, we audit, clean, and architect the data infrastructure that makes intelligence possible.",
+    image: "/Test Image.webp",
   },
   {
-    icon:"/Icons/Difff.svg",
-    title: "From Experiments to Scalable Systems",
-    description: "Scalable AI/ML Data pipeline development",
-    image: "/Test Image.webp"
+    number: "03",
+    title: "From Experiments\nto Scalable Systems",
+    description:
+      "Proofs of concept that never ship are wasted potential. We build scalable AI/ML data pipelines designed for production from day one.",
+    image: "/Test Image.webp",
   },
   {
-    icon:"/Icons/Difff.svg",
-    title: "Strategic AI Partners",
-    description: "Deep Collaboration, and Aligning with Your Business Goals",
-    image: "/Test Image.webp"
+    number: "04",
+    title: "Strategic\nAI Partners",
+    description:
+      "We embed alongside your team. Deep collaboration, aligned incentives, and a shared commitment to your long-term business goals.",
+    image: "/Test Image.webp",
   },
   {
-    icon:"/Icons/Difff.svg",
-    title: "MVP Focused",
-    description: "We Ship Fast",
-    image: "/Test Image.webp"
+    number: "05",
+    title: "MVP\nFocused",
+    description:
+      "Speed to value is a competitive advantage. We ship fast, iterate faster, and keep scope ruthlessly tied to outcomes that matter.",
+    image: "/Test Image.webp",
   },
   {
-    icon:"/Icons/Difff.svg",
-    title: "Deep Domain Experience",
-    description: "Solutions Engineered for Real-World Impact",
-    image: "/Test Image.webp"
-  }
+    number: "06",
+    title: "Deep Domain\nExperience",
+    description:
+      "Our engineers have worked across finance, healthcare, logistics, and retail. Solutions engineered for real-world impact, not theoretical benchmarks.",
+    image: "/Test Image.webp",
+  },
 ];
 
+// ── Single feature row ────────────────────────────────────────────────────────
+function FeatureRow({ point, index }: { point: (typeof points)[0]; index: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={inView ? { opacity: 1 } : {}}
+      transition={{ duration: 0.6 }}
+      className="grid grid-cols-1 md:grid-cols-2 md:min-h-[360px] border-b border-gray-100 last:border-b-0"
+    >
+      {/* ── Image panel — always left ── */}
+      <div className="relative overflow-hidden h-56 md:h-auto md:max-h-[360px] rounded-2xl md:rounded-none mx-4 md:mx-0 mt-6 md:mt-0">
+        <motion.img
+          src={point.image}
+          alt={point.title}
+          initial={{ scale: 1.08 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* ── Text panel — always right ── */}
+      <div className="relative flex flex-col justify-center px-6 md:px-16 py-8 md:py-16 bg-white">
+        {/* Top rule + number */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={inView ? { scaleX: 1, opacity: 1 } : {}}
+          transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+          className="flex items-center gap-4 mb-8 origin-left"
+        >
+          <span className="text-xs font-bold tracking-[0.25em] text-[#3643D9] uppercase">
+            {point.number}
+          </span>
+          <div className="flex-1 h-px bg-gradient-to-r from-[#3643D9]/40 to-transparent" />
+        </motion.div>
+
+        {/* Title */}
+        <motion.h3
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+          className="text-2xl md:text-4xl font-light text-slate-900 leading-tight mb-6 whitespace-pre-line"
+        >
+          {point.title}
+        </motion.h3>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
+          className="text-gray-500 text-base md:text-lg leading-relaxed font-light max-w-sm"
+        >
+          {point.description}
+        </motion.p>
+
+        {/* Decorative corner accent */}
+        <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-[#3643D9]/8 to-transparent rounded-tl-3xl" />
+      </div>
+    </motion.div>
+  );
+}
+
+// ── Main section ──────────────────────────────────────────────────────────────
 export default function Differentiation() {
-    return (
-        <section className=" overflow-hidden">
-            {/* 1. Header Section (Your Existing Structure) */}
-            <main className='text-center max-w-full md:px-12 pt-10 pb-10 md:pt-20'>
-                <div>
-                    <motion.h1 
-                        initial={{opacity:0, y:20}}
-                        whileInView={{opacity:1, y:0}}
-                        viewport={{once:true}}
-                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="text-4xl md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight"
-                    >
-                        What Sets Us Apart
-                    </motion.h1>
+  return (
+    <section className="overflow-hidden">
 
-                    <motion.p
-                        initial={{opacity:0, y:20}}
-                        whileInView={{opacity:1, y:0}}
-                        viewport={{once:true}}
-                        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                        className='text-center mb-16 px-4'
-                    >
-                        <span className='text-gray-600'>Your trusted AI consultancy partner</span>
-                    </motion.p>
-                </div>
-            </main>
+      {/* Header */}
+      <div className="text-center max-w-full md:px-12 pt-10 pb-16 md:pt-20">
 
-            
-            <div className="w-full">
-                {points.map((point, index) => (
-                    <div 
-                        key={index}
-                        className={`flex flex-col md:flex-row  w-full `}
-                    >
-                        {/* Image Block */}
-                        <motion.div 
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            transition={{ duration: 1 }}
-                            viewport={{once:true}}
-                            className="w-full md:w-1/2 aspect-video md:aspect-auto"
-                        >
-                            <img 
-                                src={point.image} 
-                                alt={point.title} 
-                                className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
-                            />
-                        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+          className="text-4xl md:text-7xl font-extralight bg-gradient-to-r from-[#3643D9] via-[#040E77] to-[#3643D9] bg-clip-text text-transparent md:leading-tight px-4"
+        >
+          What Sets Us Apart
+        </motion.h2>
 
-                        {/* Text Block */}
-                        <div
-                        className="w-full md:w-1/2 flex flex-col justify-center p-10 md:p-20 bg-gray-50/50 relative">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          className="mt-4 text-gray-500 px-4"
+        >
+          Your trusted AI consultancy partner
+        </motion.p>
+      </div>
 
-                            {/* Subtle Grain Overlay (Optional) */}
-                            <div className="absolute inset-0 opacity-[0.25] z-5 pointer-events-none bg-[url('/noise.svg')]" />
-                            
-                            <motion.div
-                            initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            className='z-5'
-                            >
-                                <div className=" mx-auto md:mx-0 z-6">
-                                    {/*
-                                    <img 
-                                        src={point.icon} 
-                                        alt="" 
-                                        className='w-24 h-24'
-                                    />
-                                    */}
-                                    <h3 className="text-2xl md:text-3xl font-light text-slate-900 mb-4 leading-tight">
-                                        {point.title}
-                                    </h3>
-                                    <p className="text-gray-600 text-lg leading-relaxed">
-                                        {point.description}
-                                    </p>
-                               </div>
-                            </motion.div>
-                            
-                       
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </section>
-    );
+      {/* Feature rows */}
+      <div className="border-t border-gray-100">
+        {points.map((point, index) => (
+          <FeatureRow key={index} point={point} index={index} />
+        ))}
+      </div>
+
+
+    </section>
+  );
 }
